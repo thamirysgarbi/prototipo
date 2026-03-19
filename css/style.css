@@ -2829,6 +2829,9 @@
       margin-bottom: 20px;
     }
 
+    .btn-text-mobile {
+      display: none;
+  }
     @media (max-width: 768px) {
 
       .resume-cards {
@@ -2838,8 +2841,15 @@
         margin-bottom: 20px;
       }
 
+      .btn-text-desktop {
+        display: none;
+      }
+      .btn-text-mobile {
+        display: block;
+      }
     }
-
+    
+  
 
 
 
@@ -4282,14 +4292,30 @@
 ========================= */
 
     #modalComanda .modal-footer {
-      padding: 20px 28px;
+      justify-content: center;
       border-top: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 16px 6px;
     }
 
+@media (max-width: 768px) {
+  #modalComanda .modal-footer {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
 
+  #modalComanda .modal-footer > div:last-child {
+    display: flex;
+    gap: 8px;
+  }
+
+  #modalComanda .modal-footer button {
+    flex: 1; /* deixa os botões com o mesmo tamanho */
+  }
+}
     /* =========================
    ICON BUTTON – PADRÃO FRAMJA
 ========================= */

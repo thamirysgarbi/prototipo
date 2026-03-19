@@ -2854,8 +2854,12 @@
               <div class="d-flex justify-content-between align-items-center mb-3">
                 <h6 class="fw-semibold m-0">Produtos de Venda</h6>
                 <div class="d-flex gap-2">
-                  <button class="btn-outline">+ Adicionar Produto</button>
-                  <button class="btn-info d-flex align-items-center gap-2">
+
+                  <button class="btn-text-desktop btn-outline">+ Adicionar Produto</button>
+
+                  <button class="btn-text-mobile btn-outline">Adicionar</button>       
+
+                  <button class="btn-text-desktop btn-info">
                     <!-- Ícone -->
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                       stroke-linecap="round" stroke-linejoin="round">
@@ -2870,6 +2874,22 @@
                     </svg>
 
                     Escanear
+                  </button>
+
+
+                   <button class="btn-text-mobile btn-info">
+                    <!-- Ícone -->
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 7V5a2 2 0 0 1 2-2h2" />
+                      <path d="M20 7V5a2 2 0 0 0-2-2h-2" />
+                      <path d="M4 17v2a2 2 0 0 0 2 2h2" />
+                      <path d="M20 17v2a2 2 0 0 1-2 2h-2" />
+                      <line x1="8" y1="8" x2="8" y2="16" />
+                      <line x1="11" y1="8" x2="11" y2="16" />
+                      <line x1="14" y1="8" x2="14" y2="16" />
+                      <line x1="16" y1="10" x2="16" y2="14" />
+                    </svg>
                   </button>
 
                 </div>
@@ -2971,18 +2991,25 @@
 
         </div>
 
-        <div class="modal-footer">
-          <div>
-            <button class="btn-info" onclick="fecharComanda()">Cancelar</button>
-          </div>
-          <div style="gap: 5px;">
-            <button class="btn-outline">Salvar Alterações</button>
-            <button class="btn-novo" onclick="salvarComanda()">
-              Finalizar Comanda
-            </button>
+          <div class="modal-footer">
+            <div>
+              <button class="btn-info" onclick="fecharComanda()">Cancelar</button>
+            </div>
+<div style="display: flex; ">
+  <button class="btn-text-desktop btn-outline">Salvar Alterações</button>
+    <button class="btn-text-mobile btn-outline">Salvar</button>
 
+  <button class="btn-text-desktop btn-novo" onclick="salvarComanda()">
+    Finalizar Comanda
+  </button>
+
+  <button class="btn-text-mobile btn-novo" onclick="salvarComanda()">
+    Finalizar
+  </button>
+</div>
+
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
