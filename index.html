@@ -1,0 +1,3007 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Dashboard | Framja</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebarMobile()"></div>
+
+  <div class="layout">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+
+      <div class="topbar-left">
+        <button class="menu-toggle" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="estabelecimento">
+          <span class="label">Estabelecimento</span>
+          <strong>Studio Beleza Premium</strong>
+        </div>
+      </div>
+
+
+      <div class="trial-status" id="trialStatus">
+        <div class="trial-meta" style="display: flex; align-items: center;">
+          <span class="trial-label">Teste gratuito</span>
+          <span class="trial-day" id="trialText">Dia 1 de 10</span>
+          <button class="btn-contratar-neon">
+            <span>Ativar Plano</span>
+          </button>
+        </div>
+        <div class="trial-track">
+          <div class="trial-fill" id="trialBar"></div>
+        </div>
+
+
+
+      </div>
+
+
+      <div class="topbar-right">
+
+
+        <div class="theme-selector">
+          <button id="themeToggleBtn" class="theme-btn">
+            🎨 Tema
+          </button>
+
+          <div id="themeDropdown" class="theme-dropdown">
+            <div class="theme-title">Escolha seu estilo</div>
+            <div class="btn-theme-grid">
+              <button class="theme-option" data-theme="blue">Azul Vivo</button>
+              <button class="theme-option" data-theme="black">Preto Luxo</button>
+              <button class="theme-option" data-theme="sunset">Sol Rosa</button>
+              <button class="theme-option" data-theme="purple-green">Tema Framja</button>
+              <button class="theme-option" data-theme="ocean">Mar Profundo</button>
+              <button class="theme-option" data-theme="forest">Verde Nobre</button>
+              <button class="theme-option" data-theme="ice">Gelo Claro</button>
+              <button class="theme-option" data-theme="volcanic">Chama Azul</button>
+              <button class="theme-option" data-theme="cosmic">Verde Neon</button>
+              <button class="theme-option" data-theme="peach-noir">Pêssego Dark</button>
+              <button class="theme-option" data-theme="glacial-fire">Fogo Frio</button>
+              <button class="theme-option" data-theme="mustard-tech">Ouro Tech</button>
+              <button class="theme-option" data-theme="tropical">Rosa Menta</button>
+              <button class="theme-option" data-theme="liquid-gold">Ouro Real</button>
+              <button class="theme-option" data-theme="dark-barbie-core">Rosa Intenso</button>
+              <button class="theme-option" data-theme="royal-crimson">Vinho Real</button>
+              <button class="theme-option" data-theme="magenta">Magenta Pop</button>
+              <button class="theme-option" data-theme="pink-obsession">Rosa Impacto</button>
+              <button class="theme-option" data-theme="neon-abyss">Neon Profundo</button>
+              <button class="theme-option" data-theme="electric-depth">Azul Elétrico</button>
+              <button class="theme-option" data-theme="earth-luxe">Terra Chic</button>
+              <button class="theme-option" data-theme="noir-flame">Noir Fogo</button>
+              <button class="theme-option" data-theme="toxic-cherry">Cereja Neon</button>
+              <button class="theme-option" data-theme="snake-oil">Verde Âmbar</button>
+              <button class="theme-option" data-theme="vermelho-vivo">Vermelho Pulse</button>
+              <button class="theme-option" data-theme="turquesa">Turquesa Fresh</button>
+            </div>
+
+          </div>
+        </div>
+
+
+
+        <button id="toggleTheme" class="theme-toggle" aria-label="Alternar tema">
+          <div class="theme-toggle-track">
+            <div class="theme-toggle-thumb">
+              <span class="icon-sun">☀</span>
+              <span class="icon-moon">☾</span>
+            </div>
+          </div>
+        </button>
+
+
+
+
+        <div class="notification-wrapper">
+
+          <div class="topbar-icon" id="notificationBtn">
+            <i class="far fa-bell"></i>
+            <span class="notification-dot"></span>
+          </div>
+
+          <div class="notification-dropdown" id="notificationDropdown">
+
+
+            <div class="notification-header">
+              <strong>Notificações</strong>
+            </div>
+            <div class="notification-list">
+              <div class="notification-item">
+                <div class="notification-title">
+                  Notas de Atualização 1.11.9
+                  <span class="arrow"></span>
+                </div>
+                <div class="notification-body">
+                  <div class="release-notes">
+
+                    <p class="release-intro">
+                      Nesta versão, entregamos melhorias voltadas para compatibilidade internacional,
+                      usabilidade da agenda e flexibilidade nas permissões dos profissionais,
+                      tornando sua experiência no Framja ainda mais completa e eficiente.
+                    </p>
+
+                    <div class="release-section">
+                      <h4>🌎 Cadastro de telefones internacionais de clientes</h4>
+                      <ul>
+                        <li>
+                          Agora é possível cadastrar números de telefone no padrão internacional,
+                          permitindo o envio de mensagens via WhatsApp para clientes de outros países,
+                          quando necessário.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="release-section">
+                      <h4>🗓️ Melhoria na visualização da agenda (navegador)</h4>
+                      <ul>
+                        <li>
+                          A exibição da agenda foi aprimorada, com melhor distribuição dos profissionais
+                          na tela e ajuste de zoom dinâmico, proporcionando uma navegação mais fluída
+                          e confortável no acompanhamento dos agendamentos.
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="release-section">
+                      <h4>👥 Novas configurações de acesso para profissionais</h4>
+                      <ul>
+                        <li>
+                          Adicionadas novas permissões de controle, permitindo definir se um profissional
+                          pode realizar agendamentos e/ou abrir comandas em nome de outros profissionais,
+                          oferecendo mais flexibilidade e autonomia na gestão da equipe.
+                        </li>
+                      </ul>
+                    </div>
+
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="notification-item">
+                <div class="notification-title">
+                  Pagamento confirmado
+                  <span class="arrow"></span>
+                </div>
+                <div class="notification-body">
+                  João realizou o pagamento de R$120,00 via Pix.
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <button class="topbar-icon-btn" aria-label="WhatsApp">
+          <svg class="icon-whatsapp" viewBox="0 0 24 24">
+            <path
+              d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.43 0 .05 5.38.05 12c0 2.12.55 4.19 1.6 6.02L0 24l6.18-1.62A11.96 11.96 0 0 0 12.05 24c6.62 0 12-5.38 12-12 0-3.2-1.25-6.2-3.53-8.52ZM12.05 21.82a9.8 9.8 0 0 1-4.99-1.37l-.36-.21-3.67.96.98-3.58-.23-.37a9.8 9.8 0 1 1 8.27 4.57Zm5.46-7.34c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15s-.77.97-.94 1.17c-.17.2-.35.22-.65.07a8.04 8.04 0 0 1-2.36-1.45 8.8 8.8 0 0 1-1.63-2.03c-.17-.3 0-.47.13-.62.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37s-1.05 1.02-1.05 2.5 1.07 2.9 1.22 3.1c.15.2 2.1 3.2 5.08 4.48.71.3 1.26.48 1.69.62.71.22 1.36.19 1.87.11.57-.08 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.08-.12-.27-.2-.57-.35Z" />
+          </svg>
+        </button>
+
+
+
+        <div class="user-card">
+          <div class="user-avatar">AP</div>
+          <div class="user-data">
+            <strong>Ana Paula</strong>
+            <small>ana@email.com</small>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">
+        <!-- Logo menu aberto -->
+        <img style="margin-bottom: 0px; margin-top:8px; margin-left: 8px; width: 105px;" src="assets/logotipo_framja.png"
+          alt="Framja" class="logo-aberto">
+
+        <!-- Logo menu fechado -->
+        <img src="assets/logotipo-framja-gato-pequeno.png" alt="Framja" class="logo-fechado"
+          style="margin-top: 15px; margin-bottom: 0px">
+      </div>
+
+
+      <nav class="sidebar-menu">
+        <a href="javascript:void(0)" onclick="abrirPagina('page-dashboard')" class="active">
+          <span class="icon">👁️</span>
+          <span class="text">Olho do Gato</span>
+        </a>
+
+
+        <div class="menu-item has-submenu">
+          <a href="javascript:void(0)" onclick="toggleSubmenu(this)">
+            <span class="icon">📅</span>
+            <span class="text">Agenda</span>
+            <span class="arrow">▸</span>
+          </a>
+
+          <div class="submenu">
+            <a href="javascript:void(0)" onclick="abrirPagina('page-agenda')">
+              <span class="icon">📅</span>
+              <span class="text">Agenda</span>
+            </a>
+
+
+            <a href="#">
+              <span class="icon">📲</span>
+              <span class="text">Link de agendamento</span>
+            </a>
+
+            <a href="#">
+              <span class="icon">⏰</span>
+              <span class="text">Lembrete automático</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="menu-item has-submenu">
+          <a href="javascript:void(0)" onclick="toggleSubmenu(this)">
+            <span class="icon">💰</span>
+            <span class="text">Caixa</span>
+            <span class="arrow">▸</span>
+          </a>
+
+          <div class="submenu">
+            <a href="javascript:void(0)" onclick="abrirPagina('page-caixa')">
+              <span class="icon">💰</span>
+              <span class="text">Caixa</span>
+            </a>
+
+            <a href="#">
+              <span class="icon">🤝</span>
+              <span class="text">Comissões</span>
+            </a>
+
+            <a href="javascript:void(0)" onclick="abrirPagina('page-despesas')">
+              <span class="icon">💸</span>
+              <span class="text">Despesas</span>
+            </a>
+
+
+          </div>
+        </div>
+
+        <div class="menu-item has-submenu">
+          <a href="javascript:void(0)" onclick="toggleSubmenu(this)">
+            <span class="icon">🗂️</span>
+            <span class="text">Cadastros</span>
+            <span class="arrow">▸</span>
+          </a>
+
+          <div class="submenu">
+            <a href="#">
+              <span class="icon">👥</span>
+              <span class="text">Clientes</span>
+            </a>
+
+            <a href="#">
+              <span class="icon">👤</span>
+              <span class="text">Profissionais</span>
+            </a>
+
+            <a href="javascript:void(0)" onclick="abrirPagina('page-servicos')">
+              <span class="icon">✂️</span>
+              <span class="text">Serviços</span>
+            </a>
+
+            <a href="javascript:void(0)" onclick="abrirPagina('page-pacotes')">
+              <span class="icon">🎁</span>
+              <span class="text">Pacotes</span>
+            </a>
+
+            <a href="javascript:void(0)" onclick="abrirPagina('page-cashback')">
+              <span class="icon">💜</span>
+              <span class="text">Cashback</span>
+            </a>
+
+            <a href="#">
+              <span class="icon">📦</span>
+              <span class="text">Produtos</span>
+            </a>
+
+            <a href="javascript:void(0)" onclick="abrirPagina('page-fiscal')">
+              <span class="icon">🧾</span>
+              <span class="text">NFS-e</span>
+            </a>
+
+          </div>
+        </div>
+
+        <a href="#"><span class="icon">📊</span><span class="text">Relatórios</span></a>
+        <a href="#"><span class="icon">⚙️</span><span class="text">Configurações</span></a>
+        <a href="#" class="logout">
+          <span class="icon">🚪</span>
+          <span class="text">Sair</span>
+        </a>
+      </nav>
+    </aside>
+
+
+
+
+
+    <!-- ================= DASHBOARD ================= -->
+    <main class="main-content" id="mainContent">
+
+      <div class="app-page" id="page-dashboard">
+        <div class="dashboard">
+
+
+          <!-- HEADER -->
+          <div class="header" "row-12" style="display: flex; justify-content: space-between; align-items: center;">
+            <h1><strong>👁️ Olho do Gato</strong></h1>
+            <select class="form-select w-auto">
+              <option value="1">Hoje</option>
+              <option value="7">Última semana</option>
+              <option value="15">Últimos 15 dias</option>
+              <option value="30">Últimos 30 dias</option>
+
+            </select>
+          </div>
+
+          <!-- TABS -->
+          <ul class="nav nav-tabs mb-4">
+            <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#geral">Visão
+                Geral</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                data-bs-target="#financeiro">Financeiro</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                data-bs-target="#clientes">Clientes</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                data-bs-target="#operacao">Operação</button></li>
+            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                data-bs-target="#profissionais">Profissionais</button></li>
+          </ul>
+
+          <div class="tab-content">
+
+            <!-- ================= VISÃO GERAL ================= -->
+            <div class="tab-pane fade show active" id="geral">
+
+              <div class="row g-3 mb-3">
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Receita</small>
+                    <h2>R$ 18.450</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Despesas</small>
+                    <h2>R$ 7.320</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Lucro</small>
+                    <h2>R$ 11.130</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Ticket médio</small>
+                    <h2>R$ 94</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="block alerts">
+                <h3>📅 Movimentações do dia</h3>
+                <div id="movimentacoesHoje"></div>
+              </div>
+
+              <div class="block alerts">
+                <h3>⚠️ Importante hoje</h3>
+                <div id="alertsContainer"></div>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-lg-7">
+
+                  <div class="block">
+                    <h3>💳 Formas de pagamento <a href="#" class="report-link">Ver detalhes <span>→</span></a></h3>
+                    <div class="row-line"><span>Cartão</span><strong>R$ 9.240</strong></div>
+                    <div class="row-line"><span>PIX</span><strong>R$ 5.720</strong></div>
+                    <div class="row-line"><span>Dinheiro</span><strong>R$ 3.490</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>📉 Principal despesa <a href="#" class="report-link">Ver detalhes <span>→</span></a></h3>
+                    <div class="row-line"><span>Comissões</span><strong>R$ 3.480</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>🏆 Destaques</h3>
+                    <div class="row-line"><span>Serviço mais vendido</span><strong>Corte Feminino</strong></div>
+                    <div class="row-line"><span>Produto mais vendido</span><strong>Máscara Capilar</strong></div>
+                    <div class="row-line"><span>Melhor cliente</span><strong>Ana Silva</strong></div>
+                    <div class="row-line"><span>Melhor profissional</span><strong>Ana Paula</strong></div>
+                  </div>
+
+                  <div class="insight">
+                    💡 O lucro representa cerca de 60% da receita.
+                    A maior alavanca de resultado está no controle de comissões.
+                  </div>
+
+                </div>
+
+                <div class="col-lg-5">
+                  <div class="chart">
+                    <canvas id="chartGeral"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= FINANCEIRO ================= -->
+            <div class="tab-pane fade" id="financeiro">
+
+              <div class="row g-3 mb-3">
+                <div class="col-6 col-md-2">
+                  <div class="card-framja">
+                    <small>Receita bruta</small>
+                    <h2>R$ 18.450</h2>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                  <div class="card-framja">
+                    <small>Despesas totais</small>
+                    <h2>R$ 6.320</h2>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                  <div class="card-framja">
+                    <small>Lucro real do período</small>
+                    <h2>R$ 11.130</h2>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                  <div class="card-framja">
+                    <small>Valores a receber</small>
+                    <h2>R$ 2.180</h2>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                  <div class="card-framja">
+                    <small>Créditos de clientes</small>
+                    <h2>R$ 3.420</h2>
+                  </div>
+                </div>
+
+                <div class="col-6 col-md-2">
+                  <div class="card-framja">
+                    <small>Comissões a pagar</small>
+                    <h2>R$ 1.260</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-lg-7">
+
+                  <div class="block">
+                    <h3>💰 Fluxo de caixa</h3>
+                    <div class="row-line"><span>Entradas no período</span><strong>R$ 16.270</strong></div>
+                    <div class="row-line"><span>Saídas no período</span><strong>R$ 7.180</strong></div>
+                    <div class="row-line"><span>Saldo de caixa</span><strong>R$ 9.090</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>📥 Origem da receita <a href="#" class="report-link">Ver faturamento <span>→</span></a></h3>
+                    <div class="row-line"><span>Serviços</span><strong>R$ 13.200</strong></div>
+                    <div class="row-line"><span>Produtos</span><strong>R$ 5.250</strong></div>
+                    <div class="row-line"><span>Pacotes</span><strong>R$ 0</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>📤 Destino do dinheiro <a href="#" class="report-link">Ver despesas <span>→</span></a></h3>
+                    <div class="row-line"><span>Comissões</span><strong>R$ 3.480</strong></div>
+                    <div class="row-line"><span>Despesas fixas</span><strong>R$ 2.800</strong></div>
+                    <div class="row-line"><span>Despesas variáveis</span><strong>R$ 1.040</strong></div>
+                    <div class="row-line"><span>Taxas de pagamento</span><strong>R$ 420</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>🏆 Indicadores de performance</h3>
+                    <div class="row-line"><span>Profissional mais lucrativo</span><strong>Ana Paula</strong></div>
+                    <div class="row-line"><span>Serviço com maior margem</span><strong>Coloração</strong></div>
+                    <div class="row-line"><span>Ticket médio</span><strong>R$ 185</strong></div>
+                  </div>
+
+                  <div class="insight">
+                    💡 Seu caixa é impactado por <strong>R$ 2.180</strong> em valores a receber.
+                    Antecipar recebimentos ou ajustar formas de pagamento pode melhorar o fluxo sem aumentar custos.
+                  </div>
+
+                </div>
+
+                <div class="col-lg-5">
+                  <div class="chart">
+                    <canvas id="chartFinanceiro"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= CLIENTES ================= -->
+            <div class="tab-pane fade" id="clientes">
+
+              <div class="row g-3 mb-2">
+                <div class="col-md-2">
+                  <div class="card-framja"><small>Ticket médio</small>
+                    <h2>R$ 92</h2>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card-framja"><small>Clientes novos</small>
+                    <h2>18</h2>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="card-framja"><small>Clientes sem retorno</small>
+                    <h2>27</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="block alerts">
+                <h3>🎯 Oportunidades de relacionamento</h3>
+                <div id="alertsClientes"></div>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-lg-7">
+
+                  <div class="block">
+                    <h3>💰 Quem mais gastou <a href="#" class="report-link">Melhores clientes <span>→</span></a></h3>
+                    <div class="row-line"><span>Ana Silva</span><strong>R$ 3.420</strong></div>
+                    <div class="row-line"><span>Carla Mendes</span><strong>R$ 2.980</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>🔁 Quem mais retornou</h3>
+                    <div class="row-line"><span>Carla Mendes</span><strong>9 visitas</strong></div>
+                    <div class="row-line"><span>Ana Silva</span><strong>7 visitas</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>🗓️ Próximos retornos (10 dias) <a href="#" class="report-link">Enviar convite<span>→</span></a>
+                    </h3>
+                    <div class="row-line"><span>Carla Mendes - Corte</span><strong>17/12/2025</strong></div>
+                    <div class="row-line"><span>Fernanda Pietro - Mão</span><strong>19/12/2025</strong></div>
+                    <div class="row-line"><span>Diego Santana - Hidratação</span><strong>26/12/2025</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>⚠️ Retornos vencidos <a href="#" class="report-link">Ver todos<span>→</span></a></h3>
+                    <div class="row-line"><span>Thamirys Garbi - Progressiva</span><strong>16/12/2025</strong></div>
+                    <div class="row-line"><span>Eduardo Augusto - Corte</span><strong>14/12/2025</strong></div>
+                    <div class="row-line"><span>Flávia Pereira - Manutenção Fita
+                        Adesiva</span><strong>08/12/2025</strong>
+                    </div>
+                  </div>
+
+
+                  <div class="insight">
+                    💡 Clientes recorrentes concentram maior faturamento.
+                    Campanhas de relacionamento tendem a aumentar o ticket médio.
+                  </div>
+
+                </div>
+
+                <div class="col-lg-5">
+                  <div class="chart">
+                    <canvas id="chartClientes"></canvas>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- ================= OPERAÇÃO ================= -->
+            <div class="tab-pane fade" id="operacao">
+
+              <div class="row g-3 mb-3">
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Atendimentos</small>
+                    <h2>214</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Taxa de ocupação</small>
+                    <h2>78%</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Duração média</small>
+                    <h2>42 min</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Tempo ocioso</small>
+                    <h2>14%</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row g-4">
+                <div class="col-lg-7">
+
+                  <div class="block">
+                    <h3>📅 Dias e horários</h3>
+                    <div class="row-line"><span>Melhor dia</span><strong>Sábado</strong></div>
+                    <div class="row-line"><span>Horário de pico</span><strong>14h – 17h</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>⚠️ Inadimplência</h3>
+                    <div class="row-line"><span>Dia crítico</span><strong>Sexta-feira</strong></div>
+                    <div class="row-line"><span>Horário crítico</span><strong>18h</strong></div>
+                  </div>
+
+                  <div class="block">
+                    <h3>📊 Produtividade</h3>
+                    <div class="row-line"><span>Produtividade média</span><strong>78%</strong></div>
+                    <div class="row-line"><span>Serviço mais escolhido</span><strong>Corte Feminino</strong></div>
+                  </div>
+
+                  <div class="insight">
+                    💡 Ajustar horários ociosos pode aumentar faturamento
+                    sem necessidade de novos clientes.
+                  </div>
+
+                </div>
+
+                <div class="col-lg-5">
+                  <div class="chart">
+                    <canvas id="chartOperacao"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ================= PROFISSIONAIS ================= -->
+            <div class="tab-pane fade" id="profissionais">
+
+              <div class="row g-3 mb-3">
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Receita total</small>
+                    <h2>R$ 18.450</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Comissões</small>
+                    <h2>R$ 3.480</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Retenção média</small>
+                    <h2>71%</h2>
+                  </div>
+                </div>
+                <div class="col-6 col-md-2">
+                  <div class="card-framja"><small>Ticket médio</small>
+                    <h2>R$ 104</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="block">
+                <h3>👤 Desempenho por profissional</h3>
+                <div class="table-p" style="overflow-x: auto; white-space: nowrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Profissional</th>
+                        <th>Receita</th>
+                        <th>Comissão</th>
+                        <th>Ticket médio</th>
+                        <th>Retenção</th>
+                        <th>Retorno médio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ana Paula</td>
+                        <td>R$ 8.200</td>
+                        <td>R$ 1.540</td>
+                        <td>R$ 118</td>
+                        <td>82%</td>
+                        <td>23 dias</td>
+                      </tr>
+                      <tr>
+                        <td>Carla</td>
+                        <td>R$ 6.100</td>
+                        <td>R$ 1.220</td>
+                        <td>R$ 102</td>
+                        <td>74%</td>
+                        <td>29 dias</td>
+                      </tr>
+                      <tr>
+                        <td>João</td>
+                        <td>R$ 3.150</td>
+                        <td>R$ 720</td>
+                        <td>R$ 86</td>
+                        <td>59%</td>
+                        <td>41 dias</td>
+                      </tr>
+                      <tr>
+                        <td>Viviane</td>
+                        <td>R$ 9.150</td>
+                        <td>R$ 220</td>
+                        <td>R$ 86</td>
+                        <td>59%</td>
+                        <td>39 dias</td>
+                      </tr>
+                      <tr>
+                        <td>Eduardo</td>
+                        <td>R$ 19.150</td>
+                        <td>R$ 920</td>
+                        <td>R$ 106</td>
+                        <td>59%</td>
+                        <td>21 dias</td>
+                      </tr>
+                      <tr>
+                        <td>Mariana</td>
+                        <td>R$ 1.150</td>
+                        <td>R$ 50</td>
+                        <td>R$ 68</td>
+                        <td>59%</td>
+                        <td>51 dias</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="insight">
+                  💡 Profissionais com maior retenção geram mais receita
+                  e reduzem a necessidade de novos clientes.
+                </div>
+              </div>
+              <div class="block">
+                <h3>📊 Receita gerada por profissional</h3>
+
+                <div class="chart-scroll" style="height:340px">
+                  <canvas id="chartProfissionais"></canvas>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ================= CASHBACK ================= -->
+
+      <div class="app-page d-none" id="page-cashback">
+        <div class="dashboard">
+
+          <!-- HERO -->
+          <div class="block mb-4" style="background:var(--gradient-main);color:#fff">
+            <h2><strong>💰 Cashback do seu negócio</strong></h2>
+            <h1 style="font-size:36px;margin:6px 0">
+              R$ <span id="totalAtivo">0.00</span>
+            </h1>
+            <small>Créditos ativos incentivam novos agendamentos</small>
+            <!-- BOTÃO FIDELIZAR CLIENTES -->
+            <div class="mt-3">
+              <button class="btn-info" onclick="abrirPagina('page-servicos')">
+                <span style="font-size:16px"></span>
+                <span>Fidelizar clientes</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- CARDS -->
+          <div class="row g-3 mb-3">
+            <div class="col-md-3">
+              <div class="card-framja">
+                <small>Cashback gerado</small>
+                <h2>R$ <span id="gerado">0.00</span></h2>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card-framja">
+                <small>Cashback usado</small>
+                <h2>R$ <span id="usado">0.00</span></h2>
+              </div>
+            </div>
+
+            <div class="col-md-3">
+              <div class="card-framja">
+                <small>Cashback expirado</small>
+                <h2>R$ <span id="expirado">0.00</span></h2>
+              </div>
+            </div>
+          </div>
+
+          <!-- TABELA -->
+          <div class="block">
+            <h3>Cashback por cliente</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Saldo</th>
+                  <th>Status</th>
+                  <th>Ação</th>
+                </tr>
+              </thead>
+              <tbody id="cashbackClientes"></tbody>
+            </table>
+          </div>
+
+          <!-- REGRAS -->
+          <div class="insight info mt-3">
+            Cashback é gerado na finalização da comanda,
+            não vira dinheiro e nunca paga 100% de um serviço.
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- ================= AGENDA ================= -->
+
+      <div class="app-page d-none" id="page-agenda">
+        <div class="app">
+
+          <div class="agenda-layout">
+
+            <!-- PAINEL LATERAL -->
+            <aside class="agenda-panel">
+
+              <h3>Agenda do dia</h3>
+
+              <div class="mini-calendar">
+
+                <div class="mini-cal-header">
+                  <button>‹</button>
+                  <strong>Fevereiro 2026</strong>
+                  <button>›</button>
+                </div>
+
+                <div class="mini-cal-week">
+                  <span>D</span><span>S</span><span>T</span><span>Q</span><span>Q</span><span>S</span><span>S</span>
+                </div>
+
+                <div class="mini-cal-days">
+                  <span class="muted">26</span>
+                  <span class="muted">27</span>
+                  <span class="muted">28</span>
+                  <span class="muted">29</span>
+                  <span class="muted">30</span>
+                  <span class="muted">31</span>
+
+                  <span>1</span><span>2</span><span>3</span><span>4</span>
+                  <span class="active">5</span>
+                  <span>6</span><span>7</span>
+
+                  <span>8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span>
+                  <span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span>
+                  <span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span>
+                </div>
+
+              </div>
+
+
+              <div class="panel-section">
+                <button class="panel-btn">📋 Ver agendamentos</button>
+                <button class="panel-btn">⛔ Bloquear horário</button>
+              </div>
+
+              <div class="panel-section">
+                <label>Intervalo da agenda</label>
+                <select id="intervalSelect">
+                  <option value="15">15 minutos</option>
+                  <option value="20">20 minutos</option>
+                  <option value="25">25 minutos</option>
+                  <option value="30" selected>30 minutos</option>
+                  <option value="35">35 minutos</option>
+                  <option value="40">40 minutos</option>
+                  <option value="45">45 minutos</option>
+                  <option value="50">50 minutos</option>
+                  <option value="60">60 minutos</option>
+                </select>
+              </div>
+
+              <div class="panel-section">
+                <label>Zoom da agenda</label>
+                <div class="zoom-controls">
+                  <button id="zoomOut">−</button>
+                  <button id="zoomIn">+</button>
+                </div>
+              </div>
+
+            </aside>
+
+
+
+            <section class="agenda-main">
+              <div class="agenda-header">
+
+
+                <div class="agenda-top">
+                  <h2 id="title">📅 Agenda • Dia</h2>
+
+                  <div class="agenda-toolbar">
+
+                    <div class="agenda-nav">
+                      <button class="nav-btn" id="prevDay">‹</button>
+
+                      <div class="agenda-date" id="currentDate">
+                        Terça, 17 de Fevereiro
+                      </div>
+
+                      <button class="nav-btn" id="nextDay">›</button>
+                    </div>
+
+                    <button class="today-btn" id="goToday">
+                      Hoje
+                    </button>
+
+                  </div>
+
+
+                  <div class="toggle">
+                    <button id="dayBtn" class="toggle-btn active">Dia</button>
+                    <button id="weekBtn" class="toggle-btn">Semana</button>
+                    <button id="monthBtn" class="toggle-btn">Mês</button>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <div id="dayView">
+                <div class="day-view">
+
+                  <!-- HORAS -->
+                  <div class="hours">
+                    <button class="agenda-panel-handle" id="toggleAgendaPanel">
+                      <span class="arrow"></span>
+                    </button>
+                    <div style="height:56px;"></div>
+                    <div class="hour">08:00</div>
+                    <div class="hour">09:00</div>
+                    <div class="hour">10:00</div>
+                    <div class="hour">11:00</div>
+                    <div class="hour">12:00</div>
+                    <div class="hour">13:00</div>
+                    <div class="hour">14:00</div>
+                    <div class="hour">15:00</div>
+                    <div class="hour">16:00</div>
+                  </div>
+
+                  <!-- ================= PROFISSIONAL 1 ================= -->
+                  <div class="professional">
+                    <div class="prof-header"><img><strong>Ana
+                        <div class="cargos-agenda">Cabeleireira</div>
+                      </strong></div>
+                    <div class="timeline">
+
+                      <div class="slot" data-start="08:00">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Marina</div>
+                            <div class="meta">08:00 • 60min</div>
+                          </div>
+                          <div class="service">Limpeza</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="10:00">
+                        <div class="appointment blue" data-duration="90">
+                          <div class="top-line">
+                            <div class="client">Clara</div>
+                            <div class="meta">10:00 • 90min</div>
+                          </div>
+                          <div class="service">Skinbooster</div>
+                        </div>
+                      </div>
+
+                      <!-- conflito -->
+                      <div class="slot" data-start="13:00">
+                        <div class="appointment blue" data-duration="30">
+                          <div class="top-line">
+                            <div class="client">Joana</div>
+                            <div class="meta">13:00 • 15min</div>
+                          </div>
+                          <div class="service">Avaliação</div>
+                        </div>
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Paula</div>
+                            <div class="meta">13:00 • 60min</div>
+                          </div>
+                          <div class="service">Drenagem</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="15:00">
+                        <div class="appointment green" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Renata</div>
+                            <div class="meta">15:00 • 60min</div>
+                          </div>
+                          <div class="service">Consulta</div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- ================= PROFISSIONAL 2 ================= -->
+                  <div class="professional">
+                    <div class="prof-header"><img><strong>Bruno
+                        <div class="cargos-agenda">Assistente</div>
+                      </strong></div>
+                    <div class="timeline">
+
+                      <div class="slot" data-start="08:30">
+                        <div class="appointment green" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Lucas</div>
+                            <div class="meta">08:30 • 60min</div>
+                          </div>
+                          <div class="service">Corte</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="10:30">
+                        <div class="appointment blue" data-duration="90">
+                          <div class="top-line">
+                            <div class="client">Rafa</div>
+                            <div class="meta">10:30 • 90min</div>
+                          </div>
+                          <div class="service">Barba</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="13:00">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Caio</div>
+                            <div class="meta">13:00 • 60min</div>
+                          </div>
+                          <div class="service">Finalização</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="15:30">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Igor</div>
+                            <div class="meta">15:30 • 60min</div>
+                          </div>
+                          <div class="service">Máquina</div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- ================= PROFISSIONAL 3 ================= -->
+                  <div class="professional">
+                    <div class="prof-header"><img><strong>Carla
+                        <div class="cargos-agenda">
+                          Massagista
+                        </div>
+                      </strong></div>
+                    <div class="timeline">
+
+                      <div class="slot" data-start="09:00">
+                        <div class="appointment blue" data-duration="90">
+                          <div class="top-line">
+                            <div class="client">Bia</div>
+                            <div class="meta">09:00 • 90min</div>
+                          </div>
+                          <div class="service">Massagem</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="11:00">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Lia</div>
+                            <div class="meta">11:00 • 60min</div>
+                          </div>
+                          <div class="service">Drenagem</div>
+                        </div>
+                      </div>
+
+                      <!-- conflito -->
+                      <div class="slot" data-start="13:30">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Ana</div>
+                            <div class="meta">13:30 • 60min</div>
+                          </div>
+                          <div class="service">Microcápsula de Queratina</div>
+                        </div>
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Nina</div>
+                            <div class="meta">13:30 • 60min</div>
+                          </div>
+                          <div class="service">Relaxante</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="15:30">
+                        <div class="appointment green" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Sofia</div>
+                            <div class="meta">15:30 • 60min</div>
+                          </div>
+                          <div class="service">Avaliação</div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- ================= PROFISSIONAL 4 ================= -->
+                  <div class="professional">
+                    <div class="prof-header"><img><strong>Diego
+                        <div class="cargos-agenda">
+                          Barbeiro
+                        </div>
+                      </strong></div>
+                    <div class="timeline">
+
+                      <div class="slot" data-start="08:00">
+                        <div class="appointment green" data-duration="120">
+                          <div class="top-line">
+                            <div class="client">Leo</div>
+                            <div class="meta">08:00 • 120min</div>
+                          </div>
+                          <div class="service">Tatuagem</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="10:30">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">João</div>
+                            <div class="meta">10:30 • 60min</div>
+                          </div>
+                          <div class="service">Retoque</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="13:00">
+                        <div class="appointment green" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Pedro</div>
+                            <div class="meta">13:00 • 60min</div>
+                          </div>
+                          <div class="service">Consulta</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="15:00">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Marcos</div>
+                            <div class="meta">15:00 • 60min</div>
+                          </div>
+                          <div class="service">Arte</div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                  <!-- ================= PROFISSIONAL 5 ================= -->
+                  <div class="professional">
+                    <div class="prof-header"><img><strong>Eva
+                        <div class="cargos-agenda">
+                          Maquiadora
+                        </div>
+                      </strong></div>
+                    <div class="timeline">
+
+                      <div class="slot" data-start="09:00">
+                        <div class="appointment green" data-duration="90">
+                          <div class="top-line">
+                            <div class="client">Julia</div>
+                            <div class="meta">09:00 • 90min</div>
+                          </div>
+                          <div class="service">Laser</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="11:00">
+                        <div class="appointment green" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Clara</div>
+                            <div class="meta">11:00 • 60min</div>
+                          </div>
+                          <div class="service">Skinbooster</div>
+                        </div>
+                      </div>
+
+
+                      <!-- conflito -->
+                      <div class="slot" data-start="13:30">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Mariana Souza Freitas Dantas</div>
+                            <div class="meta">13:30 • 60min</div>
+                          </div>
+                          <div class="service">Avaliação</div>
+                        </div>
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Laura</div>
+                            <div class="meta">13:30 • 60min</div>
+                          </div>
+                          <div class="service">Consulta</div>
+                        </div>
+                      </div>
+
+                      <div class="slot" data-start="15:30">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Patricia</div>
+                            <div class="meta">15:30 • 60min</div>
+                          </div>
+                          <div class="service">Rejuvenescimento</div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div id="weekView" style="display:none;">
+
+                <div class="week-controls">
+                  <label for="weekProfessional">Profissional</label>
+
+                  <div class="select-wrapper">
+                    <select id="weekProfessional">
+                      <option value="ana">Ana</option>
+                      <option value="bruno">Bruno</option>
+                      <option value="carla">Carla</option>
+                      <option value="diego">Diego</option>
+                      <option value="eva">Eva</option>
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="day-view">
+
+                  <!-- HORAS -->
+                  <div class="hours">
+                    <div style="height:56px;"></div>
+                    <div class="hour">08:00</div>
+                    <div class="hour">09:00</div>
+                    <div class="hour">10:00</div>
+                    <div class="hour">11:00</div>
+                    <div class="hour">12:00</div>
+                    <div class="hour">13:00</div>
+                    <div class="hour">14:00</div>
+                    <div class="hour">15:00</div>
+                  </div>
+
+                  <!-- SEG -->
+                  <div class="professional">
+                    <div class="prof-header"><strong>Seg</strong></div>
+                    <div class="timeline">
+                      <div class="slot" data-start="09:00">
+                        <div class="appointment blue" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Maria</div>
+                            <div class="meta">09:00 • 60min</div>
+                          </div>
+                          <div class="service">Limpeza</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- TER -->
+                  <div class="professional">
+                    <div class="prof-header"><strong>Ter</strong></div>
+                    <div class="timeline">
+                      <div class="slot" data-start="11:00">
+                        <div class="appointment blue" data-duration="90">
+                          <div class="top-line">
+                            <div class="client">Joana</div>
+                            <div class="meta">11:00 • 90min</div>
+                          </div>
+                          <div class="service">Avaliação</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- QUA -->
+                  <div class="professional">
+                    <div class="prof-header"><strong>Qua</strong></div>
+                    <div class="timeline">
+                      <div class="slot" data-start="14:00">
+                        <div class="appointment green" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Paula</div>
+                            <div class="meta">14:00 • 60min</div>
+                          </div>
+                          <div class="service">Drenagem</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- QUI -->
+                  <div class="professional">
+                    <div class="prof-header"><strong>Qui</strong></div>
+                    <div class="timeline"></div>
+                  </div>
+
+                  <!-- SEX -->
+                  <div class="professional">
+                    <div class="prof-header"><strong>Sex</strong></div>
+                    <div class="timeline">
+                      <div class="slot" data-start="10:30">
+                        <div class="appointment green" data-duration="60">
+                          <div class="top-line">
+                            <div class="client">Clara</div>
+                            <div class="meta">10:30 • 60min</div>
+                          </div>
+                          <div class="service">Skinbooster</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div id="monthView" style="display:none;">
+
+
+                <div class="month-controls">
+                  <label for="monthProfessional">Profissional</label>
+
+                  <div class="select-wrapper">
+                    <select id="monthProfessional">
+                      <option value="all">Todos</option>
+                      <option value="Ana">Ana</option>
+                      <option value="Bruno">Bruno</option>
+                      <option value="Carla">Carla</option>
+                      <option value="Eva">Eva</option>
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="month-weekdays">
+                  <div>Seg</div>
+                  <div>Ter</div>
+                  <div>Qua</div>
+                  <div>Qui</div>
+                  <div>Sex</div>
+                  <div>Sáb</div>
+                  <div>Dom</div>
+                </div>
+
+                <div class="month-calendar" id="monthCalendar"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+
+      <!-- CAIXA -->
+
+
+      <div class="app-page d-none" id="page-caixa">
+        <div class="dashboard page-caixa" style="overflow-x: hidden;">
+          <div class="caixa-layout">
+
+            <button class="caixa-handle" id="toggleResumoMobile">
+              <span class="arrow"></span>
+            </button>
+            <!-- ========================= -->
+            <!-- ESQUERDA - COMANDAS -->
+            <!-- ========================= -->
+
+            <div class="caixa-comandas">
+
+              <div class="comandas-header">
+
+                <div>
+                  <h2>💰Caixa</h2>
+                </div>
+                <div style="display: flex; align-items: center;">
+                  <div class="agenda-nav">
+                    <button class="nav-btn" id="prevDay">‹</button>
+
+                    <div class="agenda-date" id="currentDate">
+                      Terça, 17 de Fevereiro
+                    </div>
+
+                    <button class="nav-btn" id="nextDay">›</button>
+                  </div>
+
+                  <button class="today-btn" id="goToday">
+                    Hoje
+                  </button>
+                </div>
+
+
+                <div class="caixa-buttom" style="display: flex; gap: 5px;">
+
+                  <button class="btn-info" style="margin-bottom: 5px;">Vender Pacote</button>
+                  <button class="btn-novo" style="margin-bottom: 5px;">Abrir Comanda</button>
+                  <button class="btn-search" aria-label="Pesquisar">
+                    <svg class="icon-search" viewBox="0 0 24 24">
+                      <circle cx="11" cy="11" r="7"></circle>
+                      <line x1="16.5" y1="16.5" x2="21" y2="21"></line>
+                    </svg>
+                  </button>
+                  <button class="btn-search" id="toggleResumo" aria-label="Ocultar Resumo" style="color: var(--text);">
+                    <svg class="icon-search" viewBox="0 0 24 24">
+                      <polyline points="9 6 15 12 9 18"></polyline>
+                    </svg>
+
+
+                  </button>
+
+
+
+                </div>
+              </div>
+
+              <div class="comandas-grid" id="comandasGrid">
+
+
+                <div class="comanda-card card-framja">
+
+                  <!-- CABEÇALHO -->
+                  <div class="comanda-header">
+                    <div class="comanda-info">
+                      <span>05/03/2026 09:55</span>
+                      <span>Comanda: 231</span>
+                    </div>
+
+                  </div>
+
+                  <!-- CLIENTE -->
+                  <div class="comanda-cliente">
+                    <div>
+                      Maria Silva
+                    </div>
+                    <div class="comanda-status badge-fechada">
+                      Fechada
+                    </div>
+                  </div>
+
+                  <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                    <div>
+                      <div class="meta-caixa">Total Pago</div>
+                      <div class="total-pago">R$ 200,00</div>
+                    </div>
+                    <!-- ITENS -->
+                    <div class="comanda-itens">
+                      <div>
+                        <span>Serviços</span>
+                        <strong><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" style="vertical-align: middle;">
+
+                            <circle cx="6" cy="6" r="2"></circle>
+                            <circle cx="6" cy="18" r="2"></circle>
+                            <path d="M8 8L20 20"></path>
+                            <path d="M8 16L20 4"></path>
+
+                          </svg>
+                          3</strong>
+                      </div>
+                      <div>
+                        <span>Produtos</span>
+                        <strong><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" style="vertical-align: middle;">
+
+                            <path d="M9 3h6"></path>
+                            <path d="M10 3v4"></path>
+                            <path d="M14 3v4"></path>
+                            <rect x="7" y="7" width="10" height="14" rx="2"></rect>
+
+                          </svg>
+                          1</strong>
+                      </div>
+                      <div>
+                        <span>Pacotes</span>
+                        <strong><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" style="vertical-align: middle;">
+
+                            <path d="M3 7l9-4 9 4-9 4-9-4z"></path>
+                            <path d="M3 7v10l9 4 9-4V7"></path>
+
+                          </svg>
+                          0</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RESUMO PRINCIPAL -->
+                  <div class="comanda-top">
+
+                    <div>
+                      <div class="meta-caixa">Total Comanda</div>
+                      <div class="valor">R$280,00</div>
+                    </div>
+
+
+                    <div>
+                      <div class="meta-caixa">Custo</div>
+                      <div class="custo"><small>R$ 20,00</small></div>
+                    </div>
+
+                    <div>
+                      <div class="meta-caixa">Lucro</div>
+                      <div class="lucro"><small>R$ 260,00</small></div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- RODAPÉ -->
+                  <div class="comanda-footer">
+                    <div style="display: flex;flex-direction: column;">
+                      <div class="pagamentos-inline">
+                        Cartão de Crédito: R$200,00
+                      </div>
+                      <div class="pagamentos-inline">
+                        Pix: R$160,00
+                      </div>
+                      <div class="pagamentos-inline">
+                        Dinheiro: R$50,00
+                      </div>
+                    </div>
+                    <div class="badge-divida">Deixou Dívida: R$80,00 </div>
+
+
+                  </div>
+
+                </div>
+
+                <div class="comanda-card card-framja">
+
+                  <!-- CABEÇALHO -->
+                  <div class="comanda-header">
+                    <div class="comanda-info">
+                      <span>05/03/2026 09:55</span>
+                      <span>Comanda: 231</span>
+                    </div>
+
+                  </div>
+
+                  <!-- CLIENTE -->
+                  <div class="comanda-cliente">
+                    <div>
+                      Maria Silva
+                    </div>
+                    <div class="comanda-status badge-fechada">
+                      Fechada
+                    </div>
+                  </div>
+                  <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                    <div>
+                      <div class="meta-caixa">Total Pago</div>
+                      <div class="total-pago">R$ 300,00</div>
+                    </div>
+                    <!-- ITENS -->
+                    <div class="comanda-itens">
+                      <div>
+                        <span>Serviços</span>
+                        <strong><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                            stroke-linejoin="round" style="vertical-align: middle;">
+
+                            <circle cx="6" cy="6" r="2"></circle>
+                            <circle cx="6" cy="18" r="2"></circle>
+                            <path d="M8 8L20 20"></path>
+                            <path d="M8 16L20 4"></path>
+
+                          </svg>
+                          3</strong>
+                      </div>
+                      <div>
+                        <span>Produtos</span>
+                        <strong>1</strong>
+                      </div>
+                      <div>
+                        <span>Pacotes</span>
+                        <strong>0</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RESUMO PRINCIPAL -->
+                  <div class="comanda-top">
+
+                    <div>
+                      <div class="meta-caixa">Total Comanda</div>
+                      <div class="valor">R$280,00</div>
+                    </div>
+
+
+                    <div>
+                      <div class="meta-caixa">Custo</div>
+                      <div class="custo"><small>R$ 20,00</small></div>
+                    </div>
+
+                    <div>
+                      <div class="meta-caixa">Lucro</div>
+                      <div class="lucro"><small>R$ 260,00</small></div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- RODAPÉ -->
+                  <div class="comanda-footer">
+                    <div class="pagamentos-inline">
+                      Cartão de Crédito: R$300,00
+                    </div>
+                    <div class="badge-credito">Deixou Crédito: R$20,00 </div>
+
+
+                  </div>
+
+                </div>
+
+                <div class="comanda-card card-framja">
+
+                  <!-- CABEÇALHO -->
+                  <div class="comanda-header">
+                    <div class="comanda-info">
+                      <span>05/03/2026 09:55</span>
+                      <span>Comanda: 231</span>
+                    </div>
+
+                  </div>
+
+                  <!-- CLIENTE -->
+                  <div class="comanda-cliente">
+                    <div>
+                      Maria Silva
+                    </div>
+                    <div class="comanda-status badge-fechada">
+                      Fechada
+                    </div>
+                  </div>
+
+                  <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                    <div>
+                      <div class="meta-caixa">Total Pago</div>
+                      <div class="total-pago">R$ 280,00</div>
+                    </div>
+                    <!-- ITENS -->
+                    <div class="comanda-itens">
+                      <div>
+                        <span>Serviços</span>
+                        <strong>3</strong>
+                      </div>
+                      <div>
+                        <span>Produtos</span>
+                        <strong>1</strong>
+                      </div>
+                      <div>
+                        <span>Pacotes</span>
+                        <strong>0</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RESUMO PRINCIPAL -->
+                  <div class="comanda-top">
+
+                    <div>
+                      <div class="meta-caixa">Total Comanda</div>
+                      <div class="valor">R$280,00</div>
+                    </div>
+
+
+                    <div>
+                      <div class="meta-caixa">Custo</div>
+                      <div class="custo"><small>R$ 20,00</small></div>
+                    </div>
+
+                    <div>
+                      <div class="meta-caixa">Lucro</div>
+                      <div class="lucro"><small>R$ 260,00</small></div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- RODAPÉ -->
+                  <div class="comanda-footer">
+                    <div class="pagamentos-inline">
+                      Cartão de Débito: R$280,00
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+                <div class="comanda-card card-framja">
+
+                  <!-- CABEÇALHO -->
+                  <div class="comanda-header">
+                    <div class="comanda-info">
+                      <span>05/03/2026 09:55</span>
+                      <span>Comanda: 231</span>
+                    </div>
+
+                  </div>
+
+                  <!-- CLIENTE -->
+                  <div class="comanda-cliente">
+                    <div>
+                      Maria Silva
+                    </div>
+                    <div class="comanda-status badge-fechada">
+                      Fechada
+                    </div>
+                  </div>
+
+                  <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                    <div>
+                      <div class="meta-caixa">Total Pago</div>
+                      <div class="total-pago">R$ 280,00</div>
+                    </div>
+                    <!-- ITENS -->
+                    <div class="comanda-itens">
+                      <div>
+                        <span>Serviços</span>
+                        <strong>3</strong>
+                      </div>
+                      <div>
+                        <span>Produtos</span>
+                        <strong>1</strong>
+                      </div>
+                      <div>
+                        <span>Pacotes</span>
+                        <strong>0</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RESUMO PRINCIPAL -->
+                  <div class="comanda-top">
+
+                    <div>
+                      <div class="meta-caixa">Total Comanda</div>
+                      <div class="valor">R$280,00</div>
+                    </div>
+
+
+                    <div>
+                      <div class="meta-caixa">Custo</div>
+                      <div class="custo"><small>R$ 20,00</small></div>
+                    </div>
+
+                    <div>
+                      <div class="meta-caixa">Lucro</div>
+                      <div class="lucro"><small>R$ 260,00</small></div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- RODAPÉ -->
+                  <div class="comanda-footer">
+                    <div class="pagamentos-inline">
+                      Pix: R$200,00
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+                <div class="comanda-card card-framja">
+
+                  <!-- CABEÇALHO -->
+                  <div class="comanda-header">
+                    <div class="comanda-info">
+                      <span>05/03/2026 09:55</span>
+                      <span>Comanda: 231</span>
+                    </div>
+
+                  </div>
+
+                  <!-- CLIENTE -->
+                  <div class="comanda-cliente">
+                    <div>
+                      Maria Silva
+                    </div>
+                    <div class="comanda-status badge-fechada">
+                      Fechada
+                    </div>
+                  </div>
+
+                  <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                    <div>
+                      <div class="meta-caixa">Total Pago</div>
+                      <div class="total-pago">R$ 200,00</div>
+                    </div>
+                    <!-- ITENS -->
+                    <div class="comanda-itens">
+                      <div>
+                        <span>Serviços</span>
+                        <strong>3</strong>
+                      </div>
+                      <div>
+                        <span>Produtos</span>
+                        <strong>1</strong>
+                      </div>
+                      <div>
+                        <span>Pacotes</span>
+                        <strong>0</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RESUMO PRINCIPAL -->
+                  <div class="comanda-top">
+
+                    <div>
+                      <div class="meta-caixa">Total Comanda</div>
+                      <div class="valor">R$280,00</div>
+                    </div>
+
+
+                    <div>
+                      <div class="meta-caixa">Custo</div>
+                      <div class="custo"><small>R$ 20,00</small></div>
+                    </div>
+
+                    <div>
+                      <div class="meta-caixa">Lucro</div>
+                      <div class="lucro"><small>R$ 260,00</small></div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- RODAPÉ -->
+                  <div class="comanda-footer">
+                    <div class="pagamentos-inline">
+                      Cartão de Crédito: R$200,00
+                    </div>
+                    <div class="badge-divida">Deixou Dívida: R$80,00 </div>
+
+
+                  </div>
+
+                </div>
+
+                <div class="comanda-card card-framja">
+
+                  <!-- CABEÇALHO -->
+                  <div class="comanda-header">
+                    <div class="comanda-info">
+                      <span>05/03/2026 09:55</span>
+                      <span>Comanda: 231</span>
+                    </div>
+
+                  </div>
+
+                  <!-- CLIENTE -->
+                  <div class="comanda-cliente">
+                    <div>
+                      Maria Silva
+                    </div>
+                    <div class="comanda-status badge-fechada">
+                      Fechada
+                    </div>
+                  </div>
+
+                  <div style="display: flex;flex-direction: row;justify-content: space-between;">
+                    <div>
+                      <div class="meta-caixa">Total Pago</div>
+                      <div class="total-pago">R$ 200,00</div>
+                    </div>
+                    <!-- ITENS -->
+                    <div class="comanda-itens">
+                      <div>
+                        <span>Serviços</span>
+                        <strong>3</strong>
+                      </div>
+                      <div>
+                        <span>Produtos</span>
+                        <strong>1</strong>
+                      </div>
+                      <div>
+                        <span>Pacotes</span>
+                        <strong>0</strong>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RESUMO PRINCIPAL -->
+                  <div class="comanda-top">
+
+                    <div>
+                      <div class="meta-caixa">Total Comanda</div>
+                      <div class="valor">R$300,00</div>
+                    </div>
+
+
+                    <div>
+                      <div class="meta-caixa">Custo</div>
+                      <div class="custo"><small>R$ 40,00</small></div>
+                    </div>
+
+                    <div>
+                      <div class="meta-caixa">Lucro</div>
+                      <div class="lucro"><small>R$ 270,00</small></div>
+                    </div>
+                  </div>
+
+
+
+                  <!-- RODAPÉ -->
+                  <div class="comanda-footer">
+                    <div class="pagamentos-inline">
+                      Cartão de Crédito: R$400,00
+                    </div>
+                    <div class="badge-credito">Deixou Crédito: R$100,00 </div>
+
+
+                  </div>
+
+                </div>
+
+
+
+
+              </div>
+
+
+            </div>
+
+
+
+            <!-- ========================= -->
+            <!-- DIREITA - RESUMO -->
+            <!-- ========================= -->
+
+            <div class="caixa-resumo">
+
+              <div class="caixa-header" style="display: flex; gap: 5px; margin-bottom: 20px;">
+
+                <button class="btn-outline" style="margin-bottom: 5px;">Suprimento</button>
+                <button class="btn-outline" style="margin-bottom: 5px;">Sangria</button>
+                <button class="btn-outline" style="margin-bottom: 5px;">Despesas</button>
+              </div>
+              <div class="card-framja">
+                <small>Total de lucro</small>
+                <div class="valor-destaque lucro">R$ 1.255,91</div>
+              </div>
+
+              <div class="card-framja">
+                <small>Total faturado</small>
+                <div class="valor-destaque">R$ 1.540,00</div>
+              </div>
+
+              <div class="card-framja">
+                <small>Formas de pagamento</small>
+                <div class="pagamentos">
+                  Dinheiro • R$ 300<br>
+                  Pix • R$ 640<br>
+                  Cartão • R$ 600
+                </div>
+              </div>
+              <div class="caixa-clientes" style="display: flex; gap: 5px; ">
+                <div class="card-framja">
+                  <small>Total de clientes</small>
+                  <div class="valor-destaque">24</div>
+                </div>
+
+                <div class="card-framja">
+                  <small>Comandas fechadas</small>
+                  <div class="valor-destaque">18</div>
+                </div>
+
+                <div class="card-framja">
+                  <small>Ticket médio</small>
+                  <div class="valor-destaque">R$85,55</div>
+                </div>
+              </div>
+              <div class="card-framja">
+                <small>Total de custo</small>
+                <div class="pagamentos">
+                  Taxa máquina • R$ 45<br>
+                  Produtos consumo • R$ 60<br>
+                  Produtos venda • R$ 70
+                </div>
+                <div class="valor-destaque custo" style="color: #c62828 !important;">R$ 175,00</div>
+              </div>
+
+              <div class="card-framja">
+                <small>Total de comissões geradas</small>
+                <div class="valor-destaque">R$ 108,74</div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= SERVIÇOS ================= -->
+
+      <div class="app-page d-none page-servicos" id="page-servicos">
+        <div class="dashboard">
+
+          <!-- HEADER -->
+          <div class="header mb-4">
+            <h1><strong>✂️ Serviços</strong></h1>
+          </div>
+
+          <!-- CATEGORIA -->
+          <div class="block">
+            <h3>Categoria: Barbearia</h3>
+
+            <div class="services-grid">
+
+              <!-- CARD SERVIÇO -->
+              <div class="service-card" onclick="abrirModalServico(1)">
+                <h4>Corte</h4>
+                <p class="service-muted">Barbearia</p>
+
+
+                <div class="service-meta">
+                  <span>R$ 30,00</span>
+                  <span>30 min</span>
+                </div>
+
+                <span class="cashback-badge">💜 Fidelização ativa</span>
+
+
+              </div>
+
+              <div class="service-card" onclick="abrirModalServico(2)">
+                <h4>Barba</h4>
+                <p class="service-muted">Barbearia</p>
+
+                <div class="service-meta">
+
+                  <span>R$ 50,00</span>
+                  <span>30 min</span>
+                </div>
+
+
+                <span class="cashback-badge">💜 Fidelização ativa</span>
+
+              </div>
+
+              <div class="service-card" onclick="abrirModalServico(3)">
+                <h4>Barba com Navalha</h4>
+                <p class="service-muted">Barbearia</p>
+
+                <div class="service-meta">
+                  <span>R$ 25,00</span>
+                  <span>30 min</span>
+                </div>
+
+                <span class="cashback-badge">💜 Fidelização ativa</span>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= DESPESAS ================= -->
+
+      <div class="app-page d-none page-despesas" id="page-despesas">
+
+        <!-- HEADER -->
+        <div class="page-header">
+          <h2>💸 Despesas</h2>
+
+          <div class="actions">
+            <button class="btn-novo">Adicionar</button>
+            <button class="btn-info">Contas fixas</button>
+            <button class="btn-outline">Mais Opções</button>
+          </div>
+        </div>
+
+        <!-- RESUMO -->
+        <div class="resume-cards">
+          <div class="resume-card danger" onclick="filtrarStatus('vencido')">
+            <span>Vencidos</span>
+            <strong id="totalVencido">0,00</strong>
+          </div>
+
+          <div class="resume-card warning" onclick="filtrarStatus('hoje')">
+            <span>Vencem hoje</span>
+            <strong id="totalHoje">0,00</strong>
+          </div>
+
+          <div class="resume-card neutral" onclick="filtrarStatus('avencer')">
+            <span>A vencer</span>
+            <strong id="totalAvencer">0,00</strong>
+          </div>
+
+          <div class="resume-card success" onclick="filtrarStatus('pago')">
+            <span>Pagos</span>
+            <strong id="totalPagoDespesas">0,00</strong>
+          </div>
+
+          <div class="resume-card total" onclick="filtrarStatus('todos')">
+            <span>Total</span>
+            <strong id="totalGeral">0,00</strong>
+          </div>
+        </div>
+
+        <!-- TABELA -->
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Descrição</th>
+                <th>Entidade</th>
+                <th>Pagamento</th>
+                <th>Vencimento</th>
+                <th>Situação</th>
+                <th class="right">Valor</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tabelaDespesas"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- ================= EMISSÃO NOTA FISCAL ================= -->
+
+      <div class="app-page d-none page-fiscal" id="page-fiscal">
+        <div class="dashboard">
+          <div class="header">
+            <h1><strong>🧾 Cadastro Fiscal</strong></h1>
+          </div>
+
+          <div class="insight mb-4">
+            <p class="text">
+              Essas informações são usadas para emissão de nota fiscal.
+              Preencha com os dados do seu estabelecimento conforme o CNPJ.
+            </p>
+          </div>
+
+          <div class="block">
+            <h5>📌 Dados do estabelecimento</h5>
+
+            <div class="row g-3 mt-1">
+              <div class="col-md-4">
+                <label class="form-label">CNPJ</label>
+                <input type="text" class="form-control" placeholder="00.000.000/0000-00">
+              </div>
+
+              <div class="col-md-8">
+                <label class="form-label">Razão Social</label>
+                <input type="text" class="form-control" placeholder="Nome conforme CNPJ">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Nome Fantasia</label>
+                <input type="text" class="form-control" placeholder="Nome do salão">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Inscrição Municipal</label>
+                <input type="text" class="form-control" placeholder="Informe se houver">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Município</label>
+                <input type="text" class="form-control" placeholder="Cidade onde o estabelecimento está localizado">
+              </div>
+
+              <div class="col-md-6">
+                <label class="form-label">Regime Tributário</label>
+                <select class="form-select">
+                  <option>Simples Nacional</option>
+                  <option>Lucro Presumido</option>
+                  <option>Lucro Real</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <h5>⚙️ Configurações de nota</h5>
+
+            <div class="row g-3 mt-1">
+              <div class="col-md-6">
+                <label class="form-label">Alíquota de ISS (%)</label>
+                <input type="number" class="form-control" placeholder="Ex: 5">
+              </div>
+
+              <div class="col-md-6 d-flex align-items-end">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="autoEmitir">
+                  <label class="form-check-label" for="autoEmitir">
+                    Emitir nota automaticamente ao finalizar a comanda
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="block">
+            <button class="btn-novo">
+              Salvar cadastro fiscal
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================= PACOTES ================= -->
+
+      <div class="app-page d-none page-pacotes" id="page-pacotes">
+        <div class="dashboard">
+          <div class="header mb-4">
+            <h1><strong>🎁 Pacotes</strong></h1>
+          </div>
+
+          <div class="block">
+
+
+            <div class="services-grid">
+
+              <!-- CARD SERVIÇO -->
+              <div class="service-card" onclick="abrirModalServico(1)">
+                <h4>Corte + Barba</h4>
+                <p class="service-muted">Barbearia</p>
+
+
+                <div class="service-meta">
+                  <span>R$ 200,00</span>
+
+                  <div class="validade-wrapper">
+                    <span class="validade-label">Validade</span>
+                    <span class="validade-dias">30 dias</span>
+                  </div>
+                </div>
+
+
+                <span class="cashback-badge">2 serviços inclusos</span>
+
+
+              </div>
+
+
+              <div class="service-card" onclick="abrirModalServico(1)">
+                <h4>Escova + Manicure</h4>
+                <p class="service-muted">Beleza</p>
+
+
+                <div class="service-meta">
+                  <span>R$ 370,00</span>
+
+                  <div class="validade-wrapper">
+                    <span class="validade-label">Validade</span>
+                    <span class="validade-dias">30 dias</span>
+                  </div>
+                </div>
+
+
+                <span class="cashback-badge">2 serviços inclusos</span>
+
+
+              </div>
+
+
+              <div class="buttom-box">
+                <button id="btn-novo-servico" class="btn-novo" onclick="abrirModalNovoServico()">
+                  + Novo Serviço
+                </button>
+
+
+
+              </div>
+
+              <div class="service-card" onclick="abrirModalServico(1)">
+                <h4>Hidratação Premium</h4>
+                <p class="service-muted">Barbearia</p>
+
+
+                <div class="service-meta">
+                  <span>R$ 280,00</span>
+
+                  <div class="validade-wrapper">
+                    <span class="validade-label">Validade</span>
+                    <span class="validade-dias">60 dias</span>
+                  </div>
+                </div>
+
+
+                <span class="cashback-badge">1 serviço incluso</span>
+
+
+              </div>
+
+              <div class="service-card" onclick="abrirModalServico(1)">
+                <h4>Escova c/ Mega Hair</h4>
+                <p class="service-muted">Mega Hair</p>
+
+
+                <div class="service-meta">
+                  <span>R$ 400,00</span>
+
+                  <div class="validade-wrapper">
+                    <span class="validade-label">Validade</span>
+                    <span class="validade-dias">30 dias</span>
+                  </div>
+                </div>
+
+
+                <span class="cashback-badge">1 serviço incluso</span>
+
+
+              </div>
+
+
+
+            </div>
+          </div>
+
+          <div class="buttom-box">
+            <button class="btn-novo">+ Novo Pacote</button>
+
+            <button class="btn-info" onclick="toggleInsight()">
+              <span class="insight-icon">ℹ</span>
+              Entenda como funciona
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- MODAIS -->
+
+      <div class="insight-panel" id="insightPanel">
+
+        <div class="insight-header">
+          <span>Como funcionam os pacotes</span>
+          <button onclick="toggleInsight()">Fechar</button>
+        </div>
+
+        <div class="insight-body">
+
+          <div class="insight-content">
+
+            <p><strong>📦 Como funcionam os pacotes</strong></p>
+
+            <p>
+              Pacotes permitem vender múltiplas sessões de um serviço com valor fechado
+              e validade definida, facilitando a fidelização e o controle.
+            </p>
+
+            <p><strong>O que é um pacote?</strong></p>
+            <p>
+              É a venda antecipada de várias sessões de um serviço.
+              <br>
+              Exemplo: 10 sessões de Drenagem Linfática por R$ 800,00 com validade de 60 dias.
+            </p>
+
+            <p><strong>Controle automático</strong></p>
+            <ul>
+              <li>Ao vender, o sistema gera um saldo de sessões para o cliente.</li>
+              <li>A cada comanda finalizada, uma sessão é descontada automaticamente.</li>
+              <li>Quando o saldo zera, o pacote é encerrado.</li>
+            </ul>
+
+            <p><strong>Validade</strong></p>
+            <p>
+              A validade começa a contar a partir da data da venda.
+              <br>
+              Exemplo: pacote vendido em 10/02 com validade de 30 dias → vence após 30 dias corridos.
+            </p>
+
+            <p><strong>Regras importantes</strong></p>
+            <ul>
+              <li>O saldo é individual por cliente.</li>
+              <li>Não é possível transferir sessões entre clientes.</li>
+              <li>O desconto já está embutido no valor do pacote.</li>
+            </ul>
+
+          </div>
+
+        
+          <div class="global-action-box" id="globalActionBox"></div>
+
+          <!-- MODAL NOVO SERVIÇO -->
+          <div id="modalNovoServico" class="modal-overlay">
+            <div class="modal-box">
+
+              <div class="modal-header">
+                <h3>Novo Serviço</h3>
+                <button class="btn-close" onclick="fecharModalNovoServico()"></button>
+              </div>
+
+              <div class="modal-body">
+
+                <label>
+                  Nome do serviço
+                  <input type="text" id="novoNome">
+                </label>
+
+                <label>
+                  Categoria
+                  <input type="text" id="novaCategoria">
+                </label>
+
+                <label>
+                  Preço (R$)
+                  <input type="number" id="novoPreco">
+                </label>
+
+                <label>
+                  Duração (min)
+                  <input type="number" id="novaDuracao">
+                </label>
+
+              </div>
+
+              <div class="modal-footer">
+                <button class="btn secondary" onclick="fecharModalNovoServico()">Cancelar</button>
+                <button class="btn primary" onclick="salvarNovoServico()">Salvar</button>
+              </div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+      <!-- ===== MODAL DESPESA ===== -->
+      <div class="modal-overlay" id="modalDespesa">
+        <div class="modal-box">
+          <div class="modal-header">
+            <h3>Nova despesa</h3>
+            <button onclick="fecharModalDespesa()">✕</button>
+          </div>
+
+          <div class="modal-body">
+
+            <label>
+              Nome da despesa
+              <input type="text" id="nomeDespesa" placeholder="Ex: Aluguel do salão">
+            </label>
+
+            <label>
+              Categoria
+              <select id="categoriaDespesa">
+                <option>Aluguel</option>
+                <option>Energia</option>
+                <option>Internet</option>
+                <option>Funcionários</option>
+                <option>Sistema</option>
+                <option>Outros</option>
+              </select>
+            </label>
+
+            <label>
+              Valor (R$)
+              <input type="number" id="valorDespesa">
+            </label>
+
+            <label class="switch">
+              <input type="checkbox" id="recorrenteToggle" onchange="toggleRecorrente()">
+              <span></span>
+              Despesa recorrente
+            </label>
+
+            <div id="recorrenteConfig" class="hidden">
+              <label>
+                Periodicidade
+                <select id="periodicidade">
+                  <option value="Mensal">Mensal</option>
+                  <option value="Semanal">Semanal</option>
+                  <option value="Anual">Anual</option>
+                </select>
+              </label>
+
+              <label>
+                Dia de vencimento
+                <input type="number" id="vencimento" placeholder="Ex: 10">
+              </label>
+            </div>
+
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn-secondary" onclick="fecharModalDespesa()">Cancelar</button>
+            <button class="btn-primary" onclick="salvarDespesa()">Salvar</button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- MODAL SERVIÇO -->
+      <div id="modalServico">
+        <div class="modal-box modal-xxl">
+
+          <!-- HEADER -->
+          <div class="modal-header">
+            <h3>✂️ Serviço: Barba</h3>
+            <button onclick="fecharModal()">✕</button>
+          </div>
+
+          <!-- BODY -->
+          <div class="modal-body scroll">
+
+            <!-- BLOCO: INFORMAÇÕES -->
+            <div class="modal-card">
+              <h4>🧾 Informações do serviço</h4>
+
+              <div class="form-grid">
+                <label>
+                  Categoria
+                  <select>
+                    <option>Barbearia</option>
+                  </select>
+                </label>
+
+                <label>
+                  Nome do serviço
+                  <input type="text" value="Barba">
+                </label>
+              </div>
+            </div>
+
+            <!-- BLOCO: PREÇO / AGENDAMENTO -->
+            <div class="modal-card">
+              <h4>💸 Preço e agendamento</h4>
+
+              <div class="form-grid">
+                <label>
+                  Preço
+                  <input type="text" value="R$ 50,00">
+                </label>
+
+                <div class="form-grid">
+                  <label class="toggle-box" style="display: flex; flex-direction: row-reverse;">
+                    Agendamento on-line?
+                    <input type="checkbox">
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- BLOCO: TEMPO -->
+            <div class="modal-card">
+              <h4>⏱️ Duração e retorno</h4>
+
+              <div class="form-grid">
+                <label>
+                  Duração (min)
+                  <input type="number" value="30">
+                </label>
+
+                <label>
+                  Sugerir retorno (dias)
+                  <input type="number" value="0">
+                </label>
+              </div>
+            </div>
+
+            <!-- BLOCO: PRODUTOS -->
+            <div class="modal-card">
+              <h4>📦 Produtos utilizados</h4>
+
+              <button class="btn-outline">+ Adicionar produto</button>
+            </div>
+
+            <!-- BLOCO: CASHBACK -->
+            <div class="modal-card highlight">
+              <h4>💜 Fidelização (Cashback)</h4>
+
+              <label class="switch">
+                <input type="checkbox" id="geraCashback">
+                <span></span>
+                Gera cashback neste serviço
+              </label>
+
+              <div id="cashbackConfig" class="hidden">
+
+                <div class="form-grid">
+                  <label>
+                    Tipo
+                    <select>
+                      <option>Percentual (%)</option>
+                      <option>Valor fixo (R$)</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    Valor
+                    <input type="number" placeholder="Ex: 5">
+                  </label>
+                </div>
+
+                <label class="switch mt">
+                  <input type="checkbox">
+                  <span></span>
+                  Aceita pagamento com cashback
+                </label>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- FOOTER -->
+          <div class="modal-footer">
+            <button class="btn-danger">Excluir serviço</button>
+            <button class="btn-primary">Salvar</button>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+  </div>
+  </div>
+
+  <!-- MODAL COMANDA -->
+
+  <!-- MODAL COMANDA -->
+  <div id="modalComanda" class="modal-overlay">
+    <div class="modal-box" style="width: 950px; max-width: 95%; overflow-x:hidden;">
+
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h3>Nova Comanda</h3>
+
+        <div style="display:flex; gap:16px; align-items:center;">
+          <button class="btn-close" type="button"></button>
+
+        </div>
+      </div>
+
+      <!-- ABAS -->
+      <ul class="nav nav-tabs px-3 pt-2 mb-0" role="tablist">
+
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#abaComanda" type="button" role="tab">
+            Comanda
+          </button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#abaPagamento" type="button" role="tab">
+            Pagamento
+          </button>
+        </li>
+
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="tab" data-bs-target="#abaInfo" type="button" role="tab">
+            Informações
+          </button>
+        </li>
+
+      </ul>
+
+
+      <div class="modal-body">
+        <div class="tab-content">
+
+          <!-- ========================= -->
+          <!-- ABA COMANDA -->
+          <!-- ========================= -->
+          <div id="abaComanda" class="tab-pane fade show active">
+
+            <!-- CLIENTE -->
+            <div class="card p-3 mb-4" style="box-shadow: none;">
+              <div class="row align-items-end">
+
+                <div class="col-md-6">
+                  <h6 class="fw-semibold m-0 mb-2">Cliente</h6>
+
+                  <div class="d-flex align-items-center gap-2">
+                    <input type="text" class="form-control form-control-sm" placeholder="Cadastrar - (99) 99999-9999">
+
+                    <button class="icon-btn icon-danger" type="button">
+                      ✕
+                    </button>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <h6 class="fw-semibold m-0 mb-2">Data</h6>
+                  <input type="date" class="form-control form-control-sm">
+                </div>
+
+                <div class="col-md-3">
+                  <h6 class="fw-semibold m-0 mb-2">Hora</h6>
+                  <input type="time" class="form-control form-control-sm">
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- SERVIÇOS -->
+            <div class="card p-3 mb-4" style="box-shadow: none;">
+
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="fw-semibold m-0">Serviços</h6>
+                <button class="btn-outline">+ Adicionar Serviço</button>
+              </div>
+
+              <div class="row g-2 align-items-end" style="font-size: 14px;">
+
+                <div class="col-md-2">
+                  <label class="form-label small">Profissional</label>
+                  <select class="form-select form-select-sm">
+                    <option>Aurora</option>
+                    <option>Alana</option>
+                    <option>Arthur</option>
+                  </select>
+                </div>
+
+                <div class="col-md-3">
+                  <label class="form-label small">Serviço</label>
+                  <select class="form-select form-select-sm">
+                    <option>Corte</option>
+                    <option>Hidratação</option>
+                    <option>Escova</option>
+                  </select>
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label small">Valor</label>
+                  <input type="number" class="form-control form-control-sm valor-item">
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label small">Qtde</label>
+                  <input type="number" value="1" class="form-control form-control-sm quantidade-item">
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label small">% Desc.</label>
+                  <input type="number" class="form-control form-control-sm desconto-item">
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label small">% Acrésc.</label>
+                  <input type="number" class="form-control form-control-sm acrescimo-item">
+                </div>
+
+                <div class="col-md-2">
+                  <label class="form-label small">Total</label>
+                  <input class="form-control form-control-sm fw-bold total-item" readonly>
+                </div>
+
+
+                <div class="col-md-1 text-end">
+                  <button class="icon-btn icon-danger" type="button">
+                    ✕
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+            <!-- PRODUTOS -->
+            <div class="card p-3" style="box-shadow: none;">
+
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="fw-semibold m-0">Produtos de Venda</h6>
+                <div class="d-flex gap-2">
+                  <button class="btn-outline">+ Adicionar Produto</button>
+                  <button class="btn-info d-flex align-items-center gap-2">
+                    <!-- Ícone -->
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 7V5a2 2 0 0 1 2-2h2" />
+                      <path d="M20 7V5a2 2 0 0 0-2-2h-2" />
+                      <path d="M4 17v2a2 2 0 0 0 2 2h2" />
+                      <path d="M20 17v2a2 2 0 0 1-2 2h-2" />
+                      <line x1="8" y1="8" x2="8" y2="16" />
+                      <line x1="11" y1="8" x2="11" y2="16" />
+                      <line x1="14" y1="8" x2="14" y2="16" />
+                      <line x1="16" y1="10" x2="16" y2="14" />
+                    </svg>
+
+                    Escanear
+                  </button>
+
+                </div>
+              </div>
+
+              <div class="row g-2 align-items-end" style="font-size: 14px;">
+
+                <div class="col-md-2">
+                  <label class="form-label small">Profissional</label>
+                  <select class="form-select form-select-sm">
+                    <option>Camila</option>
+                  </select>
+
+                </div>
+
+                <div class="col-md-3">
+                  <label class="form-label small">Produto</label>
+                  <select class="form-select form-select-sm">
+                    <option>Energético Monster Ultra Energy 473ml</option>
+                  </select>
+
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label small">Valor</label>
+                  <input class="form-control form-control-sm">
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label small">Qtde</label>
+                  <input class="form-control form-control-sm">
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label small">% Desc.</label>
+                  <input class="form-control form-control-sm">
+                </div>
+
+                <div class="col-md-1">
+                  <label class="form-label small">% Acrésc.</label>
+                  <input class="form-control form-control-sm">
+                </div>
+
+                <div class="col-md-2">
+                  <label class="form-label small">Total</label>
+                  <input class="form-control form-control-sm fw-bold total-item" readonly>
+
+                </div>
+
+                <div class="col-md-1 text-end">
+                  <button class="icon-btn icon-danger" type="button">
+                    ✕
+                  </button>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- ========================= -->
+          <!-- ABA PAGAMENTO -->
+          <!-- ========================= -->
+          <div id="abaPagamento" class="tab-pane fade">
+
+            <div class="card p-3 mb-4">
+              <div class="row text-center">
+
+                <span>totalComanda</span>
+                <h5 class="fw-bold" id="totalComanda">R$ 0,00</h5>
+                <span>totalCobrar</span>
+                <h5 class="fw-bold" id="totalCobrar">R$ 0,00</h5>
+                <span>totalPago</span>
+                <h5 class="fw-bold" id="totalPago">R$ 0,00</h5>
+                <span>troco</span>
+                <h5 class="fw-bold" id="troco">R$ 0,00</h5>
+
+                <input type="number" class="form-control form-control-sm" id="valorPagamento"
+                  oninput="atualizarPagamento()">
+
+
+              </div>
+            </div>
+
+          </div>
+
+
+          <!-- ========================= -->
+          <!-- ABA INFO -->
+          <!-- ========================= -->
+          <div id="abaInfo" class="tab-pane fade">
+            <div class="comanda-section">
+              <h6 class="text-muted text-uppercase mb-3">Observações</h6>
+              <textarea class="form-control form-control-sm" rows="4"></textarea>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <div>
+            <button class="btn-info" onclick="fecharComanda()">Cancelar</button>
+          </div>
+          <div style="gap: 5px;">
+            <button class="btn-outline">Salvar Alterações</button>
+            <button class="btn-novo" onclick="salvarComanda()">
+              Finalizar Comanda
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- SCRIPTS -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="js/scripts.js"></script>
+
+  <div class="insight-overlay" onclick="toggleInsight()"></div>
+
+ 
+  <div id="tourOverlay" class="insight-overlay"></div>
+
+</body>
+
+</html>
