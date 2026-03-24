@@ -9,21 +9,21 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  
-  
+
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  
+
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-  integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
-  crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+    integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <link rel="stylesheet" href="css/style.css">
 
 </head>
@@ -227,8 +227,8 @@
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-logo">
         <!-- Logo menu aberto -->
-        <img style="margin-bottom: 0px; margin-top:8px; margin-left: 8px; width: 105px;" src="assets/logotipo_framja.png"
-          alt="Framja" class="logo-aberto">
+        <img style="margin-bottom: 0px; margin-top:8px; margin-left: 8px; width: 105px;"
+          src="assets/logotipo_framja.png" alt="Framja" class="logo-aberto">
 
         <!-- Logo menu fechado -->
         <img src="assets/logotipo-framja-gato-pequeno.png" alt="Framja" class="logo-fechado"
@@ -2079,6 +2079,85 @@
         </div>
       </div>
 
+      <!-- COMISSOES -->
+
+      <div class="app-page d-none" id="page-comissoes">
+        <div class="dashboard page-comissoes" style="overflow-x: hidden;">
+          <div class="comissoes-header">
+            <span style="font-size: 22px;"><strong>📊 Comissões</strong></span>
+          </div>
+
+<ul class="nav nav-tabs mb-4" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#geral" aria-selected="true" role="tab">Lista de Comissões</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#financeiro" aria-selected="false" tabindex="-1" role="tab">Vale dos Profissionais</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#clientes" aria-selected="false" tabindex="-1" role="tab">Pagamento das Comissões</button></li>
+          </ul>
+
+
+          
+<div  class="tabela-comandas">
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Profissional</th>
+      <th>Cliente</th>
+      <th>Data</th>
+      <th>Serviço/Produto</th>
+      <th>Comanda</th>
+      <th>Valor do Serviço</th>
+      <th>Valor à Pagar</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td><input type="checkbox"></td>
+
+      <td>Maria Eduarda</td>
+
+      <td>Fernanda Santana</td>
+
+      <td>
+        24/03/2026 <br>
+        <small>Terça-feira</small>
+      </td>
+
+      <td>Aplicação de Fita Adesiva</td>
+
+      <td>
+        <span class="btn-info">1122</span>
+      </td>
+
+      <td>R$450,00</td>
+
+      <td>
+        R$225,00 <br>
+        <small>Comissão 50%</small>
+      </td>
+
+      <td>
+        <span class="badge pendente">Pendente</span>
+      </td>
+
+      <td class="acoes">
+        <button class="btn edit">✏️</button>
+        <button class="btn ok">✔</button>
+        <button class="btn cancel">✖</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+          <div class="insight info">Aprove as comissões para efetuar o pagamento para os profissionais. O sistema calcula automaticamente com base nos serviços realizados e nas regras definidas.</div>
+          </div>
+        </div>
+      </div>
+
+
       <!-- ================= SERVIÇOS ================= -->
 
       <div class="app-page d-none page-servicos" id="page-servicos">
@@ -2464,7 +2543,7 @@
 
           </div>
 
-        
+
           <div class="global-action-box" id="globalActionBox"></div>
 
           <!-- MODAL NOVO SERVIÇO -->
@@ -2697,7 +2776,7 @@
             <button class="btn-novo">Salvar</button>
 
 
-            
+
           </div>
 
         </div>
@@ -2861,7 +2940,7 @@
 
                   <button class="btn-text-desktop btn-outline">+ Adicionar Produto</button>
 
-                  <button class="btn-text-mobile btn-outline">Adicionar</button>       
+                  <button class="btn-text-mobile btn-outline">Adicionar</button>
 
                   <button class="btn-text-desktop btn-info">
                     <!-- Ícone -->
@@ -2881,7 +2960,7 @@
                   </button>
 
 
-                   <button class="btn-text-mobile btn-info">
+                  <button class="btn-text-mobile btn-info">
                     <!-- Ícone -->
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
                       stroke-linecap="round" stroke-linejoin="round">
@@ -2995,27 +3074,27 @@
 
         </div>
 
-          <div class="modal-footer">
-            <div>
-              <button class="btn-info" onclick="fecharComanda()">Cancelar</button>
-            </div>
-<div style="display: flex; ">
-  <button class="btn-text-desktop btn-outline">Salvar Alterações</button>
-    <button class="btn-text-mobile btn-outline">Salvar</button>
-
-  <button class="btn-text-desktop btn-novo" onclick="salvarComanda()">
-    Finalizar Comanda
-  </button>
-
-  <button class="btn-text-mobile btn-novo" onclick="salvarComanda()">
-    Finalizar
-  </button>
-</div>
-
-            </div>
+        <div class="modal-footer">
+          <div>
+            <button class="btn-info" onclick="fecharComanda()">Cancelar</button>
           </div>
+          <div style="display: flex; ">
+            <button class="btn-text-desktop btn-outline">Salvar Alterações</button>
+            <button class="btn-text-mobile btn-outline">Salvar</button>
+
+            <button class="btn-text-desktop btn-novo" onclick="salvarComanda()">
+              Finalizar Comanda
+            </button>
+
+            <button class="btn-text-mobile btn-novo" onclick="salvarComanda()">
+              Finalizar
+            </button>
+          </div>
+
+        </div>
       </div>
     </div>
+  </div>
   </div>
 
 
@@ -3030,7 +3109,7 @@
 
   <div class="insight-overlay" onclick="toggleInsight()"></div>
 
- 
+
   <div id="tourOverlay" class="insight-overlay"></div>
 
 </body>

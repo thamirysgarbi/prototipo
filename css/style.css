@@ -2362,6 +2362,7 @@
 
     .modal-box {
       background: var(--card);
+      height: 90%;
       width: 520px;
       max-width: 92%;
       border-radius: 16px;
@@ -2395,7 +2396,7 @@
 
     /* caixa */
     #modalServico .modal-box {
-      width: 520px;
+      width: 100vh;
       background: var(--card);
       border-radius: 18px;
       overflow: hidden;
@@ -2451,7 +2452,7 @@
     #modalServico .modal-body {
       padding: 22px;
       overflow-y: scroll;
-      height: 60vh;
+      height: 70vh;
     }
 
     /* SECTION */
@@ -4946,3 +4947,92 @@
       }
 
     }
+
+    /* COMISSOES PAGINA */
+
+    .comissoes-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      margin-top: 16px;
+      font-size: 22px;
+      
+    }
+
+    .tabela-comandas {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+
+}
+
+@media (max-width: 768px){
+  .tabela-comandas {
+    font-size: 12px;
+    overflow-x: scroll;
+  }
+  
+}
+
+.tabela-comandas th {
+  text-align: left;
+  padding: 12px;
+  font-size: 14px;
+  color: #555;
+}
+
+.tabela-comandas td {
+  padding: 14px 12px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.tabela-comandas small {
+  color: #777;
+  font-size: 12px;
+}
+
+
+/* BADGE */
+.badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.pendente {
+  background: #ffc107;
+  color: #000;
+}
+
+/* BOTÕES */
+.acoes {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn.edit {
+  background: rgba(var(--primary-rgb), var(--theme-soft));
+  border: 1px solid rgba(251, 246, 255, 0.3);
+}
+
+.btn.ok {
+  background: #28a745;
+  color: white;
+}
+
+.btn.cancel {
+  background: #dc3545;
+  color: white;
+}
