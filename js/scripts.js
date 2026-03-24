@@ -817,7 +817,7 @@ function salvarNovoServico() {
       <span>${duracao} min</span>
     </div>
 
-    <span class="cashback-badge">💜 Fidelização ativa</span>
+    <span class="cashback-badge"><i class="fas fa-heart"></i> Fidelização ativa</span>
   `;
 
     grid.appendChild(novoCard);
