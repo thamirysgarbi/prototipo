@@ -282,7 +282,7 @@
               <span class="text">Caixa</span>
             </a>
 
-            <a href="#">
+            <a href="javascript:void(0)" onclick="abrirPagina('page-comissoes')">
               <span class="icon">🤝</span>
               <span class="text">Comissões</span>
             </a>
@@ -2501,8 +2501,8 @@
               </div>
 
               <div class="modal-footer">
-                <button class="btn secondary" onclick="fecharModalNovoServico()">Cancelar</button>
-                <button class="btn primary" onclick="salvarNovoServico()">Salvar</button>
+                <button class="btn-info" onclick="fecharModalNovoServico()">Cancelar</button>
+                <button class="btn-novo" onclick="salvarNovoServico()">Salvar</button>
               </div>
 
             </div>
@@ -2583,7 +2583,7 @@
 
           <!-- HEADER -->
           <div class="modal-header">
-            <h3>✂️ Serviço: Barba</h3>
+            <h3>Serviço: Barba</h3>
             <button onclick="fecharModal()">✕</button>
           </div>
 
@@ -2692,8 +2692,12 @@
 
           <!-- FOOTER -->
           <div class="modal-footer">
-            <button class="btn-danger">Excluir serviço</button>
-            <button class="btn-primary">Salvar</button>
+            <button class="btn-info btn-text-desktop">Excluir serviço</button>
+            <button class="btn-info btn-text-mobile">Excluir</button>
+            <button class="btn-novo">Salvar</button>
+
+
+            
           </div>
 
         </div>

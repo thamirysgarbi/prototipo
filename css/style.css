@@ -857,15 +857,15 @@
         overflow-x: scroll;
       }
 
-      
+
     }
-    
+
     #page-cashback .btn-info {
       color: white;
       font-weight: 600;
 
     }
-    
+
     .block h3 {
       font-size: 15px;
       margin-bottom: 10px
@@ -1000,25 +1000,26 @@
     }
 
     @media (min-width: 992px) {
-  .sidebar.closed:hover {
-    width: 240px;
-    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
-    justify-content: flex-start;
-  }
+      .sidebar.closed:hover {
+        width: 240px;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1);
+        justify-content: flex-start;
+      }
 
-  /* Faz o texto reaparecer quando a barra expande no hover */
-  .sidebar.closed:hover .sidebar-menu .text {
-    display: inline;
-  }
+      /* Faz o texto reaparecer quando a barra expande no hover */
+      .sidebar.closed:hover .sidebar-menu .text {
+        display: inline;
+      }
 
-  /* Troca o logo no hover */
-  .sidebar.closed:hover .logo-aberto {
-    display: block;
-  }
-  .sidebar.closed:hover .logo-fechado {
-    display: none;
-  }
-}
+      /* Troca o logo no hover */
+      .sidebar.closed:hover .logo-aberto {
+        display: block;
+      }
+
+      .sidebar.closed:hover .logo-fechado {
+        display: none;
+      }
+    }
 
     .sidebar-logo {
       text-align: center;
@@ -1141,7 +1142,7 @@
       color: var(--text);
     }
 
-    
+
 
     /* MOBILE: submenu sempre interno */
     @media (max-width: 991px) {
@@ -2450,6 +2451,8 @@
     /* BODY */
     #modalServico .modal-body {
       padding: 22px;
+      overflow-y: scroll;
+      height: 60vh;
     }
 
     /* SECTION */
@@ -2470,7 +2473,7 @@
     /* SWITCH */
     #modalServico .switch {
       display: flex;
-      align-items: center;
+      flex-direction: row;
       gap: 10px;
       font-size: 14px;
       font-weight: 500;
@@ -2560,7 +2563,7 @@
       padding: 16px 22px;
       border-top: 1px solid #E5E7EB;
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       gap: 10px;
     }
 
@@ -2625,6 +2628,17 @@
       border-radius: 14px;
       padding: 16px;
       margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+
+      #modalServico .form-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+      }
+
     }
 
     .modal-card.highlight {
@@ -2787,10 +2801,10 @@
     }
 
     .page-header h2 {
-        font-size: 22px;
-        font-weight: 600;
-        margin-top: 14px;
-      }
+      font-size: 22px;
+      font-weight: 600;
+      margin-top: 14px;
+    }
 
 
     .actions {
@@ -2831,7 +2845,8 @@
 
     .btn-text-mobile {
       display: none;
-  }
+    }
+
     @media (max-width: 768px) {
 
       .resume-cards {
@@ -2844,12 +2859,13 @@
       .btn-text-desktop {
         display: none;
       }
+
       .btn-text-mobile {
         display: block;
       }
     }
-    
-  
+
+
 
 
 
@@ -4300,22 +4316,24 @@
       padding: 16px 6px;
     }
 
-@media (max-width: 768px) {
-  #modalComanda .modal-footer {
-    flex-direction: row;
-    align-items: center;
-    flex-wrap: nowrap;
-  }
+    @media (max-width: 768px) {
+      #modalComanda .modal-footer {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: nowrap;
+      }
 
-  #modalComanda .modal-footer > div:last-child {
-    display: flex;
-    gap: 8px;
-  }
+      #modalComanda .modal-footer>div:last-child {
+        display: flex;
+        gap: 8px;
+      }
 
-  #modalComanda .modal-footer button {
-    flex: 1; /* deixa os botões com o mesmo tamanho */
-  }
-}
+      #modalComanda .modal-footer button {
+        flex: 1;
+        /* deixa os botões com o mesmo tamanho */
+      }
+    }
+
     /* =========================
    ICON BUTTON – PADRÃO FRAMJA
 ========================= */
