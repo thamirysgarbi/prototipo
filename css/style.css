@@ -2732,7 +2732,8 @@
     }
 
     .btn-outline {
-      display: inline-flex;
+      display: flex;
+      flex-direction: row;
       align-items: center;
       gap: 8px;
 
@@ -4948,7 +4949,8 @@
 
     }
 
-    /* COMISSOES PAGINA */
+   	  
+ /* COMISSOES PAGINA */
 
     .comissoes-header {
       display: flex;
@@ -5035,4 +5037,197 @@
 .btn.cancel {
   background: #dc3545;
   color: white;
+}
+
+/* FILTROS + SELECT ALL */
+
+/* TOPO */
+.topo-acoes {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.filtro {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  width: 380px;
+  background: var(--card);
+  border-radius: 16px;
+  border: 1px solid #eee;
+  padding: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+  display: none;
+  z-index: 100;
+  
+}
+
+ @media (max-width: 768px) {
+
+      .dropdown {
+        width: 100vw;
+        left: 27%;
+        transform: translateX(-50%);
+      }
+ 
+ }
+
+
+/* abrir (simulação sem JS) */
+.filtro:hover .dropdown {
+  display: block;
+}
+
+/* grupos */
+.grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.grupo label {
+  font-size: 12px;
+  color: #777;
+}
+
+/* range */
+.range {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 6px 8px;
+}
+
+.range input {
+  border: none;
+  outline: none;
+  font-size: 13px;
+  background: transparent;
+}
+
+.range .date-input {
+  flex: 1;
+  min-width: 0; /* MUITO importante pra não quebrar layout */
+  font-weight: 600;
+  color: var(--text-soft)
+}
+
+.range span {
+  flex-shrink: 0;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* select */
+.grupo select {
+  padding: 7px 8px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+  background: var(--card);
+  font-weight: 600;
+  color: var(--text-soft)
+}
+
+/* footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+
+/* input */
+.date-input {
+  padding: 6px 4px;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  font-size: 14px;
+}
+
+/* calendário */
+.flatpickr-calendar {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  font-size: 11px;
+  background: var(--card);
+  color: var(--text);
+}
+
+
+/* header */
+.flatpickr-months {
+  background: rgba(var(--primary-rgb), var(--theme-soft));
+  color: var(--text);
+  font-size: 11px;
+  height: 38px;
+  
+}
+
+.flatpickr-current-month {
+      color: var(--text);
+    margin-bottom: 2px;
+    width: 75%;
+    font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.flatpickr-day {
+  color: var(--text);
+}
+
+.flatpickr-weekday {
+  color: var(--text) !important;
+}
+
+.flatpickr-months .flatpickr-prev-month svg, .flatpickr-months .flatpickr-next-month svg
+  {
+    width: 10px;
+    height: 10px;
+
+  }
+
+/* dias */
+.flatpickr-day.selected {
+  background: var(--primary);
+  border: none;
+}
+
+.flatpickr-day:hover {
+  background: rgba(var(--primary-rgb), var(--theme-soft));
+  border: none;
+}
+
+/* esconde checkbox */
+#toggleFiltro {
+  display: none;
+}
+
+/* base dropdown */
+.dropdown {
+  display: none;
+  position: absolute;
+}
+
+/* abre quando clicado */
+#toggleFiltro:checked ~ .dropdown {
+  display: block;
 }

@@ -1531,6 +1531,6 @@ observer.observe(document.body, {
 
 
 
-
-
-
+flatpickr(".date-input", {
+  dateFormat: "d/m/Y",
+});
