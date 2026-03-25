@@ -5072,7 +5072,7 @@
  @media (max-width: 768px) {
 
       .dropdown {
-        width: 100vw;
+        width: 95vw;
         left: 27%;
         transform: translateX(-50%);
       }
