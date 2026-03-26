@@ -1534,3 +1534,22 @@ observer.observe(document.body, {
 flatpickr(".date-input", {
   dateFormat: "d/m/Y",
 });
+
+
+const btnSelecionar = document.getElementById('btnSelecionar');
+const bulkBar = document.getElementById('bulkBar');
+const btnCancelar = document.getElementById('btnCancelar');
+
+btnSelecionar.addEventListener('click', () => {
+  const ativo = bulkBar.classList.toggle('active');
+
+  // troca o texto do botão
+  btnSelecionar.textContent = ativo 
+    ? 'Cancelar' 
+    : '✔ Selecionar todas';
+});
+
+btnCancelar.addEventListener('click', () => {
+  bulkBar.classList.remove('active');
+  btnSelecionar.textContent = '✔ Selecionar todas';
+});

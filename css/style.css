@@ -2751,6 +2751,9 @@
       transition: all .2s ease;
     }
 
+    .btn-outline:hover {
+      transform: translateY(-1px);
+    }
 
 
     /* hover elegante */
@@ -3240,7 +3243,8 @@
     }
 
     .btn-info:hover {
-      background: rgba(150, 22, 236, 0.08);
+      background: rgba(var(--primary-rgb), var(--theme-medium));
+       border-color: rgba(var(--primary-rgb), var(--theme-medium));
     }
 
     .onboarding-panel {
@@ -5117,7 +5121,7 @@
 }
 
 .range .date-input {
-  flex: 1;
+ 
   min-width: 0; /* MUITO importante pra não quebrar layout */
   font-weight: 600;
   color: var(--text-soft)
@@ -5231,4 +5235,56 @@
 /* abre quando clicado */
 #toggleFiltro:checked ~ .dropdown {
   display: block;
+}
+
+.bulk-bar {
+  display: none;
+
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  font-size: 13px;
+}
+
+.bulk-bar.active {
+  display: flex;
+}
+
+.bulk-bar select {
+  /* padding: 6px 8px; */
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.bulk-bar strong {
+  color: var(--text-soft);
+  font-weight: 600;
+}
+
+#page-comissoes .select-wrapper select {
+  padding: 10px 18px;
+}
+
+.topo-acoes .text-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  
+  .topo-acoes{
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;  ;
+  }
+
+  .topo-acoes .text-desktop {
+    display: none;
+  }
+
+  .topo-acoes .text-mobile {
+    display: block;
+  }
 }

@@ -2432,13 +2432,35 @@
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#clientes" aria-selected="false" tabindex="-1" role="tab">Pagamento das Comissões</button></li>
           </ul>
 
+<div class="topo-acoes">
+
  <div class="topo-acoes">
 
-  
   <!-- BOTÃO SELECT ALL -->
-  <button class="btn-info">
-    ✔ Selecionar todos
+  <button class="btn-info" id="btnSelecionar" >
+    ✔ Selecionar todas
   </button>
+
+   <div class="bulk-bar" id="bulkBar">
+
+    <strong class="text-desktop">12 selecionadas</strong>
+    <strong class="text-mobile">qntd. 12</strong>
+
+    <div class="select-wrapper">
+    <select>
+      <option>Status</option>
+      <option>Aprovado</option>
+      <option>Pendente</option>
+      <option>Reprovado</option>
+    </select>
+</div>
+
+    <button class="btn-novo">Aplicar</button>
+    <!-- <button class="btn-outline" id="btnCancelar">✕</button> -->
+
+  </div>
+
+
 
   <!-- FILTRO -->
   <div class="filtro">
@@ -2459,7 +2481,7 @@
       <div class="grupo">
         <label>Período</label>
         <div class="range">
-          <input type="text" class="date-input" placeholder="Data inicial">
+          <input type="text" class="date-input" placeholder="Data inicial" style="width: 77px;">
           <span>até</span>
           <input type="text" class="date-input" placeholder="Data final">
         </div>
@@ -2488,7 +2510,7 @@
 
   </div>
 
-
+</div>
 
 
 
