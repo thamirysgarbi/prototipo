@@ -82,8 +82,8 @@ gerarAlertasEstoque();
 
 // Exemplo de dados (backend depois)
 const clientes = [
-    { nome: 'Ana Silva', aniversario: '2026-03-17' },
-    { nome: 'Carla Mendes', aniversario: '2025-12-18' },
+    { nome: 'Ana Silva', aniversario: '2026-04-06' },
+    { nome: 'Carla Mendes', aniversario: '2025-04-06' },
     { nome: 'Juliana Costa', aniversario: '2025-12-20' },
     { nome: 'Marcos Lima', aniversario: '2025-12-23' }
 ];
@@ -404,7 +404,7 @@ dayBtn.onclick = () => {
     weekBtn.classList.remove('active');
     monthBtn.classList.remove('active');
 
-    title.innerText = 'Agenda • Dia';
+    title.innerText = '📅 Agenda • Dia';
 };
 
 weekBtn.onclick = () => {
@@ -638,17 +638,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const aceitaCashback = document.getElementById('aceitaCashback');
     const limites = document.getElementById('limitesCashback');
 
-if (geraCashback && cashbackConfig) {
-    geraCashback.addEventListener('change', () => {
-        cashbackConfig.classList.toggle('hidden', !geraCashback.checked);
-    });
-}
+    const geraPagCashback = document.getElementById('geraPagCashback'); // 👈 novo
+    const cashbackPagConfig = document.getElementById('cashbackPagConfig'); // 👈 novo
 
-   if (aceitaCashback && limites) {
-    aceitaCashback.addEventListener('change', () => {
-        limites.classList.toggle('hidden', !aceitaCashback.checked);
-    });
-}
+    if (geraCashback && cashbackConfig) {
+        geraCashback.addEventListener('change', () => {
+            cashbackConfig.classList.toggle('hidden', !geraCashback.checked);
+        });
+    }
+
+    if (aceitaCashback && limites) {
+        aceitaCashback.addEventListener('change', () => {
+            limites.classList.toggle('hidden', !aceitaCashback.checked);
+        });
+    }
+
+    // 🔥 NOVO BLOCO
+    if (geraPagCashback && cashbackPagConfig) {
+        geraPagCashback.addEventListener('change', () => {
+            cashbackPagConfig.classList.toggle('hidden', !geraPagCashback.checked);
+        });
+    }
 });
 
 
@@ -1178,6 +1188,7 @@ function salvarComanda() {
 
 
 
+
 // EXCLUIR COMANDA
 
 function excluirComanda(botao) {
@@ -1380,6 +1391,7 @@ document.addEventListener("DOMContentLoaded", updateThemePreviews);
 
 const charts = [];
 
+
 function getThemeVar(variable) {
     return getComputedStyle(document.body)
         .getPropertyValue(variable)
@@ -1388,22 +1400,50 @@ function getThemeVar(variable) {
 
 function createCharts() {
 
-    const primary = getThemeVar('--primary');
-    const secondary = getThemeVar('--secondary');
-    const tertiary = getThemeVar('--gradient-main');
+const primary = getThemeVar('--primary');
+const secondary = getThemeVar('--secondary');
+const text = getThemeVar('--text');
+const transparent = 'rgba(0,0,0,0)';
 
-    charts.push(
-        new Chart(chartGeral, {
-            type: 'doughnut',
-            data: {
-                labels: ['Receita', 'Despesas', 'Lucro'],
-                datasets: [{
-                    data: [18450, 7320, 11130],
-                    backgroundColor: [primary, secondary, '#820ad1']
-                }]
+const ctx = chartGeral.getContext('2d');
+
+const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+gradient.addColorStop(0, primary);
+gradient.addColorStop(1, secondary);
+
+charts.push(
+    new Chart(chartGeral, {
+        type: 'doughnut',
+        data: {
+            labels: ['Receita', 'Despesas', 'Lucro'],
+            datasets: [{
+                data: [18450, 7320, 11130],
+                backgroundColor: [primary, secondary, gradient],
+                borderColor: transparent,
+                spacing: 4
+            }]
+        },
+
+ options: {
+    plugins: {
+        legend: {
+            position: 'bottom',
+            labels: {
+                usePointStyle: true, // 🔥 troca quadrado por bolinha
+                pointStyle: 'circle',
+                padding: 16,
+                font: {
+                    size: 12,
+                    weight: '500'
+                },
+                color: text
             }
-        })
-    );
+        }
+    }
+}
+
+    })
+);
 
     charts.push(
         new Chart(chartFinanceiro, {
@@ -1411,10 +1451,30 @@ function createCharts() {
             data: {
                 labels: ['Serviços', 'Produtos', 'Pacotes'],
                 datasets: [{
-                    data: [13200, 5250, 0],
-                    backgroundColor: [primary, '#F55ABB', '#6B7280']
+                    data: [13200, 4000, 1250],
+                    backgroundColor: [primary, secondary, gradient],
+                    borderColor: transparent,
+                    spacing: 4
                 }]
+            },
+
+            options: {
+    plugins: {
+        legend: {
+            position: 'bottom',
+            labels: {
+                usePointStyle: true, // 🔥 troca quadrado por bolinha
+                pointStyle: 'circle',
+                padding: 16,
+                font: {
+                    size: 12,
+                    weight: '500'
+                },
+                color: text // usa a cor do texto do tema
             }
+        }
+    }
+}
         })
     );
 
@@ -1425,9 +1485,30 @@ function createCharts() {
                 labels: ['Novos', 'Recorrentes', 'Inativos'],
                 datasets: [{
                     data: [18, 210, 27],
-                    backgroundColor: [primary, '#16A34A', '#6B7280']
+                    backgroundColor: [primary, secondary, gradient],
+                    borderColor: transparent,
+                    spacing: 4,
                 }]
+            },
+
+             options: {
+    plugins: {
+        legend: {
+            position: 'bottom',
+            labels: {
+                usePointStyle: true, // 🔥 troca quadrado por bolinha
+                pointStyle: 'circle',
+                padding: 16,
+                font: {
+                    size: 12,
+                    weight: '500'
+                },
+                color: text // usa a cor do texto do tema
             }
+        }
+    }
+}
+            
         })
     );
 
@@ -1439,9 +1520,31 @@ function createCharts() {
                 datasets: [{
                     label: 'Atendimentos',
                     data: [32, 28, 35, 30, 40, 49],
-                    backgroundColor: primary
+                    backgroundColor: primary,
+                    borderColor: transparent,
+                    borderWidth: 1,
+                    borderRadius: 6,
                 }]
+            },
+
+             options: {
+    plugins: {
+        legend: {
+            position: 'bottom',
+            labels: {
+                usePointStyle: true, // 🔥 troca quadrado por bolinha
+                pointStyle: 'circle',
+                padding: 16,
+                font: {
+                    size: 12,
+                    weight: '500'
+                },
+                color: text // usa a cor do texto do tema
             }
+        }
+    }
+}
+
         })
     );
 
@@ -1553,3 +1656,5 @@ btnCancelar.addEventListener('click', () => {
   bulkBar.classList.remove('active');
   btnSelecionar.textContent = '✔ Selecionar todas';
 });
+
+

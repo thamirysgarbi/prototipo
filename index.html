@@ -24,10 +24,11 @@
     integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-   <!-- FLATPICKR  -->
+  <!-- FLATPICKR  -->
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
   <link rel="stylesheet" href="css/style.css">
 
@@ -375,6 +376,7 @@
               <option value="7">Última semana</option>
               <option value="15">Últimos 15 dias</option>
               <option value="30">Últimos 30 dias</option>
+              <option value="365">Último ano</option>
 
             </select>
           </div>
@@ -436,14 +438,16 @@
 
                   <div class="block">
                     <h3>💳 Formas de pagamento <a href="#" class="report-link">Ver detalhes <span>→</span></a></h3>
-                    <div class="row-line"><span>Cartão</span><strong>R$ 9.240</strong></div>
-                    <div class="row-line"><span>PIX</span><strong>R$ 5.720</strong></div>
-                    <div class="row-line"><span>Dinheiro</span><strong>R$ 3.490</strong></div>
+                    <div class="row-line"><span>Cartão</span><strong>R$ 9.240,00</strong></div>
+                    <div class="row-line"><span>PIX</span><strong>R$ 5.720,00</strong></div>
+                    <div class="row-line"><span>Dinheiro</span><strong>R$ 3.490,00</strong></div>
                   </div>
 
                   <div class="block">
-                    <h3>📉 Principal despesa <a href="#" class="report-link">Ver detalhes <span>→</span></a></h3>
-                    <div class="row-line"><span>Comissões</span><strong>R$ 3.480</strong></div>
+                    <h3>📉 Principais despesas <a href="#" class="report-link">Ver detalhes <span>→</span></a></h3>
+                    <div class="row-line"><span>Marketing e Publicidade</span><strong>R$ 2.000,00</strong></div>
+                    <div class="row-line"><span>Comissões</span><strong>R$ 1.000,00</strong></div>
+                    <div class="row-line"><span>Água</span><strong>R$ 480,00</strong></div>
                   </div>
 
                   <div class="block">
@@ -501,12 +505,6 @@
                   </div>
                 </div>
 
-                <div class="col-6 col-md-2">
-                  <div class="card-framja">
-                    <small>Créditos de clientes</small>
-                    <h2>R$ 3.420</h2>
-                  </div>
-                </div>
 
                 <div class="col-6 col-md-2">
                   <div class="card-framja">
@@ -528,9 +526,9 @@
 
                   <div class="block">
                     <h3>📥 Origem da receita <a href="#" class="report-link">Ver faturamento <span>→</span></a></h3>
-                    <div class="row-line"><span>Serviços</span><strong>R$ 13.200</strong></div>
-                    <div class="row-line"><span>Produtos</span><strong>R$ 5.250</strong></div>
-                    <div class="row-line"><span>Pacotes</span><strong>R$ 0</strong></div>
+                    <div class="row-line"><span>Serviços</span><strong>R$ 13.200,00</strong></div>
+                    <div class="row-line"><span>Produtos</span><strong>R$ 5.000,00</strong></div>
+                    <div class="row-line"><span>Pacotes</span><strong>R$ 1.250,00</strong></div>
                   </div>
 
                   <div class="block">
@@ -650,6 +648,11 @@
                 <div class="col-6 col-md-2">
                   <div class="card-framja"><small>Taxa de ocupação</small>
                     <h2>78%</h2>
+                    <!-- <div  class="card-meter-bar">
+                      <div class="meter-bar mt-2">
+                        <div class="trial-fill" style="width: 78%"></div></div>
+                        <span class="span-meter-bar"><small>78%</small></span>
+                      </div> -->
                   </div>
                 </div>
                 <div class="col-6 col-md-2">
@@ -1509,13 +1512,25 @@
                     <div class="comanda-info">
                       <span>05/03/2026 09:55</span>
                       <span>Comanda: 231</span>
+
                     </div>
 
                   </div>
 
                   <!-- CLIENTE -->
                   <div class="comanda-cliente">
-                    <div>
+                    <div style="display: flex; align-items: center; gap: 8px;">
+                      <div class="whatsapp-wrapper">
+  <button class="comanda-icon-btn whatsapp-btn" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </button>
+
+  <div class="whatsapp-dropdown">
+    <button>Enviar aceite pacote</button>
+    <button>Enviar aceite cashback</button>
+    <button>Enviar cashback gerado</button>
+  </div>
+</div>
                       Maria Silva
                     </div>
                     <div class="comanda-status badge-fechada">
@@ -1604,11 +1619,9 @@
                       <div class="pagamentos-inline">
                         Pix: R$160,00
                       </div>
-                      <div class="pagamentos-inline">
-                        Dinheiro: R$50,00
-                      </div>
+
                     </div>
-                    <div class="badge-divida">Deixou Dívida: R$80,00 </div>
+                    <div class="badge-utilizouCredito">Utilizou Crédito: R$80,00 </div>
 
 
                   </div>
@@ -1628,8 +1641,11 @@
 
                   <!-- CLIENTE -->
                   <div class="comanda-cliente">
-                    <div>
-                      Maria Silva
+                    <div style="display: flex;flex-direction: row; gap: 8px;">
+                      <button class="comanda-icon-btn" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                      </button>
+                      Sabrina Eduarda Santana Rodrigues da Costa
                     </div>
                     <div class="comanda-status badge-fechada">
                       Fechada
@@ -1694,7 +1710,7 @@
                     <div class="pagamentos-inline">
                       Cartão de Crédito: R$300,00
                     </div>
-                    <div class="badge-credito">Deixou Crédito: R$20,00 </div>
+                    <div class="badge-pagouDivida">Pagou Dívida: R$20,00 </div>
 
 
                   </div>
@@ -2420,454 +2436,483 @@
       </div>
 
 
-            <div class="app-page d-none" id="page-comissoes">
+      <div class="app-page d-none" id="page-comissoes">
         <div class="dashboard page-comissoes">
           <div class="comissoes-header">
             <span style="font-size: 22px;"><strong>📊 Comissões</strong></span>
           </div>
 
-<ul class="nav nav-tabs mb-4" role="tablist">
-            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#geral" aria-selected="true" role="tab">Lista de Comissões</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#financeiro" aria-selected="false" tabindex="-1" role="tab">Vale dos Profissionais</button></li>
-            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#clientes" aria-selected="false" tabindex="-1" role="tab">Pagamento das Comissões</button></li>
+          <ul class="nav nav-tabs mb-4" role="tablist">
+            <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="tab"
+                data-bs-target="#geral" aria-selected="true" role="tab">Lista de Comissões</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab"
+                data-bs-target="#financeiro" aria-selected="false" tabindex="-1" role="tab">Vale dos
+                Profissionais</button></li>
+            <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="tab"
+                data-bs-target="#clientes" aria-selected="false" tabindex="-1" role="tab">Pagamento das
+                Comissões</button></li>
           </ul>
 
-<div class="topo-acoes">
+          <div class="topo-acoes">
 
- <div class="topo-acoes">
+            <div class="topo-acoes">
 
-  <!-- BOTÃO SELECT ALL -->
-  <button class="btn-info" id="btnSelecionar" >
-    ✔ Selecionar todas
-  </button>
+              <!-- BOTÃO SELECT ALL -->
+              <button class="btn-info" id="btnSelecionar">
+                ✔ Selecionar todas
+              </button>
 
-   <div class="bulk-bar" id="bulkBar">
+              <div class="bulk-bar" id="bulkBar">
 
-    <strong class="text-desktop">12 selecionadas</strong>
-    <strong class="text-mobile">qntd. 12</strong>
+                <strong class="text-desktop">12 selecionadas</strong>
+                <strong class="text-mobile">qntd. 12</strong>
 
-    <div class="select-wrapper">
-    <select>
-      <option>Status</option>
-      <option>Aprovado</option>
-      <option>Pendente</option>
-      <option>Reprovado</option>
-    </select>
-</div>
+                <div class="select-wrapper">
+                  <select>
+                    <option>Status</option>
+                    <option>Aprovado</option>
+                    <option>Pendente</option>
+                    <option>Reprovado</option>
+                  </select>
+                </div>
 
-    <button class="btn-novo">Aplicar</button>
-    <!-- <button class="btn-outline" id="btnCancelar">✕</button> -->
-
-  </div>
-
-
-
-  <!-- FILTRO -->
-  <div class="filtro">
-
-    <!-- checkbox invisível -->
-    <input type="checkbox" id="toggleFiltro">
-
-    <!-- botão vira label -->
-     <div class="filtro-btn">
-    <label for="toggleFiltro" class="btn-outline">
-    <i class="fas fa-filter"></i> Filtros
-    </label>
-     </div>
-
-    <!-- dropdown -->
-    <div class="dropdown">
-
-      <div class="grupo">
-        <label>Período</label>
-        <div class="range">
-          <input type="text" class="date-input" placeholder="Data inicial" style="width: 77px;">
-          <span>até</span>
-          <input type="text" class="date-input" placeholder="Data final">
-        </div>
-      </div>
-
-      <div class="grupo">
-        <label>Profissional</label>
-        <select>
-          <option>Todos</option>
-        </select>
-      </div>
-
-      <div class="grupo">
-        <label>Status</label>
-        <select>
-          <option>Todos</option>
-        </select>
-      </div>
-
-      <div class="footer">
-        <button class="btn-info">Limpar</button>
-        <button class="btn-novo">Aplicar</button>
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-
-
-</div>
-          
-<div  class="tabela-comandas">
-<table>
-  <thead>
-    <tr>
-      <th></th>
-      <th>Profissional</th>
-      <th>Cliente</th>
-      <th>Data</th>
-      <th>Serviço/Produto</th>
-      <th>Comanda</th>
-      <th>Valor do Serviço</th>
-      <th>Valor à Pagar</th>
-      <th>Status</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td><input type="checkbox"></td>
-
-      <td>Maria Eduarda</td>
-
-      <td>Fernanda Santana</td>
-
-      <td>
-        24/03/2026 <br>
-        <small>Terça-feira</small>
-      </td>
-
-      <td>Aplicação de Fita Adesiva</td>
-
-      <td>
-        <span class="btn-info">1122</span>
-      </td>
-
-      <td>R$450,00</td>
-
-      <td>
-        R$225,00 <br>
-        <small>Comissão 50%</small>
-      </td>
-
-      <td>
-        <span class="badge pendente">Pendente</span>
-      </td>
-
-      <td class="acoes">
-        <button class="btn edit">✏️</button>
-        <button class="btn ok">✔</button>
-        <button class="btn cancel">✖</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-          <div class="insight info">Aprove as comissões para efetuar o pagamento para os profissionais. O sistema calcula automaticamente com base nos serviços realizados e nas regras definidas.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- MODAIS -->
-
-      <div class="insight-panel" id="insightPanel">
-
-        <div class="insight-header">
-          <span>Como funcionam os pacotes</span>
-          <button onclick="toggleInsight()">Fechar</button>
-        </div>
-
-        <div class="insight-body">
-
-          <div class="insight-content">
-
-            <p><strong>📦 Como funcionam os pacotes</strong></p>
-
-            <p>
-              Pacotes permitem vender múltiplas sessões de um serviço com valor fechado
-              e validade definida, facilitando a fidelização e o controle.
-            </p>
-
-            <p><strong>O que é um pacote?</strong></p>
-            <p>
-              É a venda antecipada de várias sessões de um serviço.
-              <br>
-              Exemplo: 10 sessões de Drenagem Linfática por R$ 800,00 com validade de 60 dias.
-            </p>
-
-            <p><strong>Controle automático</strong></p>
-            <ul>
-              <li>Ao vender, o sistema gera um saldo de sessões para o cliente.</li>
-              <li>A cada comanda finalizada, uma sessão é descontada automaticamente.</li>
-              <li>Quando o saldo zera, o pacote é encerrado.</li>
-            </ul>
-
-            <p><strong>Validade</strong></p>
-            <p>
-              A validade começa a contar a partir da data da venda.
-              <br>
-              Exemplo: pacote vendido em 10/02 com validade de 30 dias → vence após 30 dias corridos.
-            </p>
-
-            <p><strong>Regras importantes</strong></p>
-            <ul>
-              <li>O saldo é individual por cliente.</li>
-              <li>Não é possível transferir sessões entre clientes.</li>
-              <li>O desconto já está embutido no valor do pacote.</li>
-            </ul>
-
-          </div>
-
-
-          <div class="global-action-box" id="globalActionBox"></div>
-
-          <!-- MODAL NOVO SERVIÇO -->
-          <div id="modalNovoServico" class="modal-overlay">
-            <div class="modal-box">
-
-              <div class="modal-header">
-                <h3>Novo Serviço</h3>
-                <button class="btn-close" onclick="fecharModalNovoServico()"></button>
-              </div>
-
-              <div class="modal-body">
-
-                <label>
-                  Nome do serviço
-                  <input type="text" id="novoNome">
-                </label>
-
-                <label>
-                  Categoria
-                  <input type="text" id="novaCategoria">
-                </label>
-
-                <label>
-                  Preço (R$)
-                  <input type="number" id="novoPreco">
-                </label>
-
-                <label>
-                  Duração (min)
-                  <input type="number" id="novaDuracao">
-                </label>
+                <button class="btn-novo">Aplicar</button>
+                <!-- <button class="btn-outline" id="btnCancelar">✕</button> -->
 
               </div>
 
-              <div class="modal-footer">
-                <button class="btn-info" onclick="fecharModalNovoServico()">Cancelar</button>
-                <button class="btn-novo" onclick="salvarNovoServico()">Salvar</button>
+
+
+              <!-- FILTRO -->
+              <div class="filtro">
+
+                <!-- checkbox invisível -->
+                <input type="checkbox" id="toggleFiltro">
+
+                <!-- botão vira label -->
+                <div class="filtro-btn">
+                  <label for="toggleFiltro" class="btn-outline">
+                    <i class="fas fa-filter"></i> Filtros
+                  </label>
+                </div>
+
+                <!-- dropdown -->
+                <div class="dropdown">
+
+                  <div class="grupo">
+                    <label>Período</label>
+                    <div class="range">
+                      <input type="text" class="date-input" placeholder="Data inicial" style="width: 77px;">
+                      <span>até</span>
+                      <input type="text" class="date-input" placeholder="Data final">
+                    </div>
+                  </div>
+
+                  <div class="grupo">
+                    <label>Profissional</label>
+                    <select>
+                      <option>Todos</option>
+                    </select>
+                  </div>
+
+                  <div class="grupo">
+                    <label>Status</label>
+                    <select>
+                      <option>Todos</option>
+                    </select>
+                  </div>
+
+                  <div class="footer">
+                    <button class="btn-info">Limpar</button>
+                    <button class="btn-novo">Aplicar</button>
+                  </div>
+
+                </div>
+
               </div>
 
             </div>
+
+
+
+
+
           </div>
 
+          <div class="tabela-comandas">
+            <table>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Profissional</th>
+                  <th>Cliente</th>
+                  <th>Data</th>
+                  <th>Serviço/Produto</th>
+                  <th>Comanda</th>
+                  <th>Valor do Serviço</th>
+                  <th>Valor à Pagar</th>
+                  <th>Status</th>
+                  <th></th>
+                </tr>
+              </thead>
 
+              <tbody>
+                <tr>
+                  <td><input type="checkbox"></td>
 
+                  <td>Maria Eduarda</td>
+
+                  <td>Fernanda Santana</td>
+
+                  <td>
+                    24/03/2026 <br>
+                    <small>Terça-feira</small>
+                  </td>
+
+                  <td>Aplicação de Fita Adesiva</td>
+
+                  <td>
+                    <span class="btn-info">1122</span>
+                  </td>
+
+                  <td>R$450,00</td>
+
+                  <td>
+                    R$225,00 <br>
+                    <small>Comissão 50%</small>
+                  </td>
+
+                  <td>
+                    <span class="badge pendente">Pendente</span>
+                  </td>
+
+                  <td class="acoes">
+                    <button class="btn edit">✏️</button>
+                    <button class="btn ok">✔</button>
+                    <button class="btn cancel">✖</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="insight info">Aprove as comissões para efetuar o pagamento para os profissionais. O sistema
+            calcula automaticamente com base nos serviços realizados e nas regras definidas.</div>
         </div>
       </div>
+  </div>
 
-      <!-- ===== MODAL DESPESA ===== -->
-      <div class="modal-overlay" id="modalDespesa">
+  <!-- MODAIS -->
+
+  <div class="insight-panel" id="insightPanel">
+
+    <div class="insight-header">
+      <span>Como funcionam os pacotes</span>
+      <button onclick="toggleInsight()">Fechar</button>
+    </div>
+
+    <div class="insight-body">
+
+      <div class="insight-content">
+
+        <p><strong>📦 Como funcionam os pacotes</strong></p>
+
+        <p>
+          Pacotes permitem vender múltiplas sessões de um serviço com valor fechado
+          e validade definida, facilitando a fidelização e o controle.
+        </p>
+
+        <p><strong>O que é um pacote?</strong></p>
+        <p>
+          É a venda antecipada de várias sessões de um serviço.
+          <br>
+          Exemplo: 10 sessões de Drenagem Linfática por R$ 800,00 com validade de 60 dias.
+        </p>
+
+        <p><strong>Controle automático</strong></p>
+        <ul>
+          <li>Ao vender, o sistema gera um saldo de sessões para o cliente.</li>
+          <li>A cada comanda finalizada, uma sessão é descontada automaticamente.</li>
+          <li>Quando o saldo zera, o pacote é encerrado.</li>
+        </ul>
+
+        <p><strong>Validade</strong></p>
+        <p>
+          A validade começa a contar a partir da data da venda.
+          <br>
+          Exemplo: pacote vendido em 10/02 com validade de 30 dias → vence após 30 dias corridos.
+        </p>
+
+        <p><strong>Regras importantes</strong></p>
+        <ul>
+          <li>O saldo é individual por cliente.</li>
+          <li>Não é possível transferir sessões entre clientes.</li>
+          <li>O desconto já está embutido no valor do pacote.</li>
+        </ul>
+
+      </div>
+
+
+      <div class="global-action-box" id="globalActionBox"></div>
+
+      <!-- MODAL NOVO SERVIÇO -->
+      <div id="modalNovoServico" class="modal-overlay">
         <div class="modal-box">
+
           <div class="modal-header">
-            <h3>Nova despesa</h3>
-            <button onclick="fecharModalDespesa()">✕</button>
+            <h3>Novo Serviço</h3>
+            <button class="btn-close" onclick="fecharModalNovoServico()"></button>
           </div>
 
           <div class="modal-body">
 
             <label>
-              Nome da despesa
-              <input type="text" id="nomeDespesa" placeholder="Ex: Aluguel do salão">
+              Nome do serviço
+              <input type="text" id="novoNome">
             </label>
 
             <label>
               Categoria
-              <select id="categoriaDespesa">
-                <option>Aluguel</option>
-                <option>Energia</option>
-                <option>Internet</option>
-                <option>Funcionários</option>
-                <option>Sistema</option>
-                <option>Outros</option>
+              <input type="text" id="novaCategoria">
+            </label>
+
+            <label>
+              Preço (R$)
+              <input type="number" id="novoPreco">
+            </label>
+
+            <label>
+              Duração (min)
+              <input type="number" id="novaDuracao">
+            </label>
+
+          </div>
+
+          <div class="modal-footer">
+            <button class="btn-info" onclick="fecharModalNovoServico()">Cancelar</button>
+            <button class="btn-novo" onclick="salvarNovoServico()">Salvar</button>
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <!-- ===== MODAL DESPESA ===== -->
+  <div class="modal-overlay" id="modalDespesa">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h3>Nova despesa</h3>
+        <button onclick="fecharModalDespesa()">✕</button>
+      </div>
+
+      <div class="modal-body">
+
+        <label>
+          Nome da despesa
+          <input type="text" id="nomeDespesa" placeholder="Ex: Aluguel do salão">
+        </label>
+
+        <label>
+          Categoria
+          <select id="categoriaDespesa">
+            <option>Aluguel</option>
+            <option>Energia</option>
+            <option>Internet</option>
+            <option>Funcionários</option>
+            <option>Sistema</option>
+            <option>Outros</option>
+          </select>
+        </label>
+
+        <label>
+          Valor (R$)
+          <input type="number" id="valorDespesa">
+        </label>
+
+        <label class="switch">
+          <input type="checkbox" id="recorrenteToggle" onchange="toggleRecorrente()">
+          <span></span>
+          Despesa recorrente
+        </label>
+
+        <div id="recorrenteConfig" class="hidden">
+          <label>
+            Periodicidade
+            <select id="periodicidade">
+              <option value="Mensal">Mensal</option>
+              <option value="Semanal">Semanal</option>
+              <option value="Anual">Anual</option>
+            </select>
+          </label>
+
+          <label>
+            Dia de vencimento
+            <input type="number" id="vencimento" placeholder="Ex: 10">
+          </label>
+        </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn-secondary" onclick="fecharModalDespesa()">Cancelar</button>
+        <button class="btn-primary" onclick="salvarDespesa()">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- MODAL SERVIÇO -->
+  <div id="modalServico">
+    <div class="modal-box modal-xxl">
+
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h3>Serviço: Barba</h3>
+        <button onclick="fecharModal()">✕</button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body scroll">
+
+        <!-- BLOCO: INFORMAÇÕES -->
+        <div class="modal-card">
+          <h4>🧾 Informações do serviço</h4>
+
+          <div class="form-grid">
+            <label>
+              Categoria
+              <select>
+                <option>Barbearia</option>
               </select>
             </label>
 
             <label>
-              Valor (R$)
-              <input type="number" id="valorDespesa">
+              Nome do serviço
+              <input type="text" value="Barba">
             </label>
-
-            <label class="switch">
-              <input type="checkbox" id="recorrenteToggle" onchange="toggleRecorrente()">
-              <span></span>
-              Despesa recorrente
-            </label>
-
-            <div id="recorrenteConfig" class="hidden">
-              <label>
-                Periodicidade
-                <select id="periodicidade">
-                  <option value="Mensal">Mensal</option>
-                  <option value="Semanal">Semanal</option>
-                  <option value="Anual">Anual</option>
-                </select>
-              </label>
-
-              <label>
-                Dia de vencimento
-                <input type="number" id="vencimento" placeholder="Ex: 10">
-              </label>
-            </div>
-
-          </div>
-
-          <div class="modal-footer">
-            <button class="btn-secondary" onclick="fecharModalDespesa()">Cancelar</button>
-            <button class="btn-primary" onclick="salvarDespesa()">Salvar</button>
           </div>
         </div>
-      </div>
 
+        <!-- BLOCO: PREÇO / AGENDAMENTO -->
+        <div class="modal-card">
+          <h4>💸 Preço e agendamento</h4>
 
-      <!-- MODAL SERVIÇO -->
-      <div id="modalServico">
-        <div class="modal-box modal-xxl">
+          <div class="form-grid">
+            <label>
+              Preço
+              <div class="preco-agendamento">
+                <input type="text" value="R$ 50,00">
+            </label>
 
-          <!-- HEADER -->
-          <div class="modal-header">
-            <h3>Serviço: Barba</h3>
-            <button onclick="fecharModal()">✕</button>
-          </div>
-
-          <!-- BODY -->
-          <div class="modal-body scroll">
-
-            <!-- BLOCO: INFORMAÇÕES -->
-            <div class="modal-card">
-              <h4>🧾 Informações do serviço</h4>
-
-              <div class="form-grid">
-                <label>
-                  Categoria
-                  <select>
-                    <option>Barbearia</option>
-                  </select>
-                </label>
-
-                <label>
-                  Nome do serviço
-                  <input type="text" value="Barba">
-                </label>
-              </div>
-            </div>
-
-            <!-- BLOCO: PREÇO / AGENDAMENTO -->
-            <div class="modal-card">
-              <h4>💸 Preço e agendamento</h4>
-
-              <div class="form-grid">
-                <label>
-                  Preço
-                  <input type="text" value="R$ 50,00">
-                </label>
-
-                <div class="form-grid">
-                  <label class="toggle-box" style="display: flex; flex-direction: row-reverse;">
-                    Agendamento on-line?
-                    <input type="checkbox">
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            <!-- BLOCO: TEMPO -->
-            <div class="modal-card">
-              <h4>⏱️ Duração e retorno</h4>
-
-              <div class="form-grid">
-                <label>
-                  Duração (min)
-                  <input type="number" value="30">
-                </label>
-
-                <label>
-                  Sugerir retorno (dias)
-                  <input type="number" value="0">
-                </label>
-              </div>
-            </div>
-
-            <!-- BLOCO: PRODUTOS -->
-            <div class="modal-card">
-              <h4>📦 Produtos utilizados</h4>
-
-              <button class="btn-outline">+ Adicionar produto</button>
-            </div>
-
-            <!-- BLOCO: CASHBACK -->
-            <div class="modal-card highlight">
-              <h4 style="color: var(--primary);"><i class="fas fa-heart"></i> Fidelização (Cashback)</h4>
-
+            <div class="form-grid">
               <label class="switch">
-                <input type="checkbox" id="geraCashback">
+                <input type="checkbox" id="agendamentoOnline">
                 <span></span>
-                Gera cashback neste serviço
+                Agendamento online permitido?
               </label>
-
-              <div id="cashbackConfig" class="hidden">
-
-                <div class="form-grid">
-                  <label>
-                    Tipo
-                    <select>
-                      <option>Percentual (%)</option>
-                      <option>Valor fixo (R$)</option>
-                    </select>
-                  </label>
-
-                  <label>
-                    Valor
-                    <input type="number" placeholder="Ex: 5">
-                  </label>
-                </div>
-
-                <label class="switch mt">
-                  <input type="checkbox">
-                  <span></span>
-                  Aceita pagamento com cashback
-                </label>
-
-              </div>
             </div>
 
           </div>
+        </div>
+      </div>
 
-          <!-- FOOTER -->
-          <div class="modal-footer">
-            <button class="btn-info btn-text-desktop">Excluir serviço</button>
-            <button class="btn-info btn-text-mobile">Excluir</button>
-            <button class="btn-novo">Salvar</button>
+      <!-- BLOCO: TEMPO -->
+      <div class="modal-card">
+        <h4>⏱️ Duração e retorno</h4>
+
+        <div class="form-grid">
+          <label>
+            Duração (min)
+            <input type="number" value="30">
+          </label>
+
+          <label>
+            Sugerir retorno (dias)
+            <input type="number" value="0">
+          </label>
+        </div>
+      </div>
+
+      <!-- BLOCO: PRODUTOS -->
+      <div class="modal-card">
+        <h4>📦 Produtos utilizados</h4>
+
+        <button class="btn-outline">+ Adicionar produto</button>
+      </div>
+
+      <!-- BLOCO: CASHBACK -->
+      <div class="modal-card highlight">
+        <h4 style="color: var(--primary);"><i class="fas fa-heart"></i> Fidelização (Cashback)</h4>
+
+        <label class="switch" style="margin-bottom: 10px;">
+          <input type="checkbox" id="geraCashback">
+          <span></span>
+          Gera cashback neste serviço
+        </label>
+
+        <div id="cashbackConfig" class="hidden">
+
+          <div class="form-grid">
+            <label>
+              Tipo
+              <select style="color: var(--text-soft);">
+                <option style="color: var(--text-soft);">Percentual (%)</option>
+                <option style="color: var(--text-soft);">Valor fixo (R$)</option>
+              </select>
+            </label>
+
+            <label>
+              Valor
+              <input type="number" placeholder="Ex: 5%">
+            </label>
+
+            <label>
+              Validade do cashback (dias)
+              <input type="number" placeholder="Ex: 30">
+            </label>
 
 
+          </div>
+
+
+
+
+          <label class="switch mt">
+            <input type="checkbox" id="geraPagCashback">
+            <span style="margin-bottom: 10px;"></span>
+            Aceita pagamento com cashback
+          </label>
+
+          <div id="cashbackPagConfig" class="hidden">
+
+            <label>
+              Valor mínimo para usar cashback (R$)
+              <input type="number" placeholder="Ex: 20">
+            </label>
 
           </div>
 
         </div>
       </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+      <button class="btn-info btn-text-desktop">Excluir serviço</button>
+      <button class="btn-info btn-text-mobile">Excluir</button>
+      <button class="btn-novo">Salvar</button>
+
+
+
+    </div>
+
+  </div>
+  </div>
 
 
 
@@ -3165,7 +3210,7 @@
           <div>
             <button class="btn-info" onclick="fecharComanda()">Cancelar</button>
           </div>
-          <div style="display: flex; ">
+          <div style="display: flex; gap: 8px;">
             <button class="btn-text-desktop btn-outline">Salvar Alterações</button>
             <button class="btn-text-mobile btn-outline">Salvar</button>
 
@@ -3198,6 +3243,28 @@
 
 
   <div id="tourOverlay" class="insight-overlay"></div>
+
+  <script>
+document.addEventListener("click", (e) => {
+
+  const btn = e.target.closest(".whatsapp-btn");
+
+  if (btn) {
+    const wrapper = btn.closest(".whatsapp-wrapper");
+    const dropdown = wrapper.querySelector(".whatsapp-dropdown");
+
+    dropdown.classList.toggle("active");
+    return;
+  }
+
+  if (!e.target.closest(".whatsapp-wrapper")) {
+    document.querySelectorAll(".whatsapp-dropdown").forEach(d => {
+      d.classList.remove("active");
+    });
+  }
+
+});
+</script>
 
 </body>
 
