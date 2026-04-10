@@ -1096,6 +1096,17 @@ function salvarComanda() {
 
      <div class="comanda-cliente">  
     <div>
+    <div class="whatsapp-wrapper">
+  <button class="comanda-icon-btn whatsapp-btn" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </button>
+
+  <div class="whatsapp-dropdown">
+    <button>Enviar aceite pacote</button>
+    <button>Enviar aceite cashback</button>
+    <button>Enviar cashback gerado</button>
+  </div>
+</div>
       ${cliente}
     </div>
             <div class="comanda-status ${statusClasse}">

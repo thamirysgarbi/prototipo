@@ -2775,7 +2775,6 @@
 
     /* estado vazio (visual implícito) */
     .modal-card::after {
-      content: 'Nenhum produto vinculado a este serviço';
       display: block;
       margin-top: 12px;
       font-size: 12px;
@@ -2788,6 +2787,18 @@
       gap: 12px;
       align-content: center;
     }
+
+        @media (max-width: 768px) {
+
+    .preco-agendamento {
+      flex-direction: column;
+      align-items: stretch;
+
+
+    }
+
+  }    
+
 
     .page-despesas {
       padding: 24px;
@@ -4071,10 +4082,10 @@
 
   box-shadow: var(--shadow-soft);
   padding: 12px 14px;
-  width: 200px;
+  width: 210px;
 
   display: none;
-  z-index: 9999;
+  z-index: 999;
 }
 
 .whatsapp-dropdown button {
@@ -4084,14 +4095,17 @@
   background: transparent;
   text-align: left;
   cursor: pointer;
-  color: var(--text);
-  border-bottom: 1px solid var(--border);
+  color: var(--text-soft);
   font-size: 13px;
+
 }
 
 .whatsapp-dropdown button:hover {
-  background: var(--primary-bg-soft);
+  background: rgba(var(--primary-rgb), var(--theme-medium));
   border-radius: 14px;
+  color: var(--primary) !important;
+  border-bottom: none;
+
 }
 
 /* quando estiver aberto */
@@ -4347,7 +4361,7 @@
     }
 
     #modalComanda .nav-tabs .nav-link:hover {
-      background: var(--primary-bg-soft);
+      background: rgba(var(--primary-rgb), var(--theme-soft));
       color: var(--primary);
     }
 
