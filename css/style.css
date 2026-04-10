@@ -2029,13 +2029,13 @@
       height: 8px;
       border-right: 2px solid white;
       border-bottom: 2px solid white;
-      transform: rotate(-45deg);
+      transform: rotate(-225deg);
       transition: transform .25s ease;
     }
 
     /* quando painel está fechado */
     .agenda-layout.panel-hidden .agenda-panel-handle .arrow {
-      transform: rotate(135deg);
+      transform: rotate(315deg);
     }
 
     * {
