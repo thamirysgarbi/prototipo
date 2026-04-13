@@ -4652,6 +4652,12 @@
 
     }
 
+    .cashback-credito-disponivel {
+      gap: 16px;
+      display: grid;
+      grid-auto-flow: column;
+    }
+
     @media (max-width: 768px) {
       #modalComanda .modal-footer {
         flex-direction: row;
@@ -4668,6 +4674,13 @@
         flex: 1;
         /* deixa os botões com o mesmo tamanho */
       }
+
+      .cashback-credito-disponivel {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
     }
 
 
