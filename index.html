@@ -2920,7 +2920,7 @@
   </div>
   </div>
 
-  <!-- MODAL COMANDA -->
+
 
   <!-- MODAL COMANDA -->
   <div id="modalComanda" class="modal-overlay">
@@ -3167,79 +3167,26 @@
 
           </div>
 
-          <!-- ========================= -->
-          <!-- ABA PAGAMENTO -->
-          <!-- ========================= -->
-          <!-- <div id="abaPagamento" class="tab-pane fade">
-
-<div class="comanda-section">
-
-<div class="card p-3 mb-4">
-  <label for="totalComanda">Total da Comanda</label>
-  <span id="totalComanda">R$ 0,00</span>
-</div>
-
-<div class="card p-3 mb-4">
-  <label for="totalCobrar">Total a Cobrar</label>
-  <span id="totalCobrar">R$ 0,00</span>
-</div>
-
-<div class="card p-3 mb-4">
-  <label for="totalPago">Total Pago</label>
-  <span id="totalPago">R$ 0,00</span>
-</div>
-
-<div class="card p-3 mb-4">
-  <label for="troco">Troco</label>
-  <span id="troco">R$ 0,00</span>
-</div>
-
-</div>
-
-<div class="comanda-section">
-
-<div class="card p-3 mb-4">
-  <label for="formaPagamento">Forma de Pagamento</label>
-  <select id="formaPagamento" class="form-select form-select-sm" onchange="atualizarPagamento()">
-    <option value="dinheiro">Dinheiro</option>
-    <option value="cartao">Cartão</option>
-    <option value="pix">Pix</option>
-    <option value="cheque">Cheque</option>
-    <option value="outros">Outros</option>
-  </select>
-
-  </div>
-
-<div class="card p-3 mb-4">
-  <label for="valorPagamento">Valor do Pagamento</label>
-  <input type="number" class="form-control form-control-sm" id="valorPagamento"
-                  oninput="atualizarPagamento()">
-</div>
-
-</div>
-
-
-
-          </div> -->
-
+      <!-- ABA PAGAMENTO -->
 
           <div id="abaPagamento" class="tab-pane fade">
 
 
-<div class="modal-card highlight">
-        <h4 style="color: var(--primary);"><i class="fas fa-heart"></i> Cashback disponível</h4>
-<div style="
-    gap: 8px;
-    display: flex;
-    align-items: center;">
+<div class="card" style="background: var(--gradient-main);padding: 16px;margin-bottom:16px;color:#fff">
+        <!-- <h4 style="color: var(--primary);"><i class="fas fa-heart"></i> Cashback disponível</h4> -->
+        <h4></h4>Cashback disponível</h4>
+<div style="gap: 8px; display: flex; align-items: center;">
   <span  style="font-size: 20px;font-weight: 600;"  id="totalCashback">R$ 0,00</span>
-  <label class="cashback-switch" style="margin-bottom: 10px;margin-top: 10px;color:var(--text-soft);">
+  <label class="cashback-switch" style="margin-bottom: 10px;margin-top: 10px;color:#fff;">
     <input type="checkbox" id="aplicarCashback">
     <span></span>
     Aplicar Cashback
   </label>
 </div>
-
+    <div class="input-group-premium">
+      <label style="color: #fff">Valor Utilizado</label>
+      <input type="number" id="valorPagamento" oninput="atualizarPagamento()">
+    </div>
 </div>
 
   <div class="comanda-grid resumo">
@@ -3325,24 +3272,24 @@
 
         </div>
 
-        <div class="modal-footer">
-          <div>
-            <button class="btn-info" onclick="fecharComanda()">Cancelar</button>
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="btn-text-desktop btn-outline">Salvar Alterações</button>
-            <button class="btn-text-mobile btn-outline">Salvar</button>
-
-            <button class="btn-text-desktop btn-novo" onclick="salvarComanda()">
-              Finalizar Comanda
-            </button>
-
-            <button class="btn-text-mobile btn-novo" onclick="salvarComanda()">
-              Finalizar
-            </button>
-          </div>
-
+      </div>
+      <div class="modal-footer">
+        <div>
+          <button class="btn-info" onclick="fecharComanda()">Cancelar</button>
         </div>
+        <div style="display: flex; gap: 8px;">
+          <button class="btn-text-desktop btn-outline">Salvar Alterações</button>
+          <button class="btn-text-mobile btn-outline">Salvar</button>
+
+          <button class="btn-text-desktop btn-novo" onclick="salvarComanda()">
+            Finalizar Comanda
+          </button>
+
+          <button class="btn-text-mobile btn-novo" onclick="salvarComanda()">
+            Finalizar
+          </button>
+        </div>
+
       </div>
     </div>
   </div>

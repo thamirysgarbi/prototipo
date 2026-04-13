@@ -2381,12 +2381,14 @@
 }
 
 .modal-box .cashback-switch input:checked + span {
-  background: var(--gradient-main);
+  background: black;
 }
 
 .modal-box .cashback-switch input:checked + span::after {
   transform: translateX(16px);
 }
+
+
 
     /* FORM */
     .page-servicos .cashback-row {
@@ -3748,28 +3750,7 @@
       font-weight: 600;
     }
 
-    /* pagamentos */
-
-    /* .page-caixa .pagamentos {
-      font-size: 12px;
-      color: var(--text-soft);
-      margin-top: 6px;
-      line-height: 1.4;
-    }
-
-    .comanda-section {
-      display: flex;
-      flex-direction: row;
-      gap: 12px;
-    }
-
-    @media (max-width: 768px) {
-
-      .comanda-section {
-        flex-direction: column;
-      }
-
-    } */
+   
 
     /* GRID PRINCIPAL */
 .comanda-grid {
@@ -4064,10 +4045,7 @@
       /* height: 35px; */
     }
 
-    .cashback-disponivel {
-      background: var(--gradient-main);
-      color: #fff;
-    }
+  
 
     .page-caixa .badge-pagouDivida {
       /* background: var(--caixa-badge-pagouDivida-bg); */
@@ -4468,19 +4446,21 @@
     /* =========================
    MODAL COMANDA — FRAMJA PREMIUM
 ========================= */
+#modalComanda .modal-box {
+  width: 100%;
+  max-width: 1100px;
+  max-height: 92vh;
 
-    #modalComanda .modal-box {
-      width: 100%;
-      max-width: 1100px;
-      max-height: 92vh;
-      overflow-y: auto;
-      overflow-x: hidden;
-      scrollbar-width: none;
-      background: var(--card);
-      border-radius: 22px;
-      box-shadow: 0 40px 120px rgba(0, 0, 0, .35);
-      border: 1px solid var(--border);
-    }
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden; /* importante */
+
+  background: var(--card);
+  border-radius: 22px;
+  box-shadow: 0 40px 120px rgba(0, 0, 0, .35);
+  border: 1px solid var(--border);
+}
 
     #modalComanda .modal-box::-webkit-scrollbar {
       display: none;
@@ -4505,8 +4485,10 @@
     /* BODY */
     #modalComanda .modal-body {
       padding: 28px;
-      padding-bottom: 0;
+      padding-bottom: 30px;
       background: var(--panel);
+      overflow-y: scroll;
+      
     }
 
     /* =========================
@@ -4640,14 +4622,18 @@
    FOOTER
 ========================= */
 
-    #modalComanda .modal-footer {
-      justify-content: center;
-      border-top: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 6px;
-;
+   #modalComanda .modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+
+  position: sticky;
+  bottom: 0;
+
     }
 
     @media (max-width: 768px) {
@@ -4999,112 +4985,7 @@
       padding-top: 0px;
     }
 
-    /* 
-.theme-option[data-theme="blue"] {
-  --preview-gradient: linear-gradient(135deg, #3B82F6, #06B6D4);
-}
-
-.theme-option[data-theme="black"] {
-  --preview-gradient: linear-gradient(135deg, rgb(22,22,22), #707070);
-}
-
-.theme-option[data-theme="sunset"] {
-  --preview-gradient: linear-gradient(135deg, #F97316, #EC4899);
-}
-
-.theme-option[data-theme="purple-green"] {
-  --preview-gradient: linear-gradient(135deg, #820AD1, #22C55E);
-}
-
-.theme-option[data-theme="ocean"] {
-  --preview-gradient: linear-gradient(135deg, #0F172A, #06B6D4);
-}
-
-.theme-option[data-theme="forest"] {
-  --preview-gradient: linear-gradient(135deg, #065F46, #34D399);
-}
-
-.theme-option[data-theme="ice"] {
-  --preview-gradient: linear-gradient(135deg, #2563EB, #60A5FA);
-}
-
-.theme-option[data-theme="volcanic"] {
-  --preview-gradient: linear-gradient(135deg, #B91C1C, #0EA5E9);
-}
-
-.theme-option[data-theme="cosmic"] {
-  --preview-gradient: linear-gradient(135deg, #0F766E, #A3E635);
-}
-
-.theme-option[data-theme="peach-noir"] {
-  --preview-gradient: linear-gradient(135deg, #FB923C, #1F2937);
-}
-
-.theme-option[data-theme="glacial-fire"] {
-  --preview-gradient: linear-gradient(135deg, #38BDF8, #FB7185);
-}
-
-.theme-option[data-theme="mustard-tech"] {
-  --preview-gradient: linear-gradient(135deg, #CA8A04, #0F172A);
-}
-
-.theme-option[data-theme="tropical"] {
-  --preview-gradient: linear-gradient(135deg, #DB2777, #34D399);
-}
-
-.theme-option[data-theme="liquid-gold"] {
-  --preview-gradient: linear-gradient(135deg, #D4AF37, #FACC15, #991B1B);
-}
-
-.theme-option[data-theme="dark-barbie-core"] {
-  --preview-gradient: linear-gradient(135deg, #EC4899, #BE185D, #831843);
-}
-
-.theme-option[data-theme="royal-crimson"] {
-  --preview-gradient: linear-gradient(135deg, #7F1D1D, #F59E0B, #9D174D);
-}
-
-.theme-option[data-theme="magenta"] {
-  --preview-gradient: linear-gradient(135deg, #F0047F, #6B21A8, #B91C1C);
-}
-
-.theme-option[data-theme="pink-obsession"] {
-  --preview-gradient: linear-gradient(135deg, #FF0080, #BE185D, #EAB308);
-}
-
-.theme-option[data-theme="neon-abyss"] {
-  --preview-gradient: linear-gradient(135deg, #0EA5E9, #22D3EE, #0F172A);
-}
-
-.theme-option[data-theme="electric-depth"] {
-  --preview-gradient: linear-gradient(135deg, #2563EB, #84CC16, #0F172A);
-}
-
-.theme-option[data-theme="earth-luxe"] {
-  --preview-gradient: linear-gradient(135deg, #6B3E26, #4B2E1E, #0D9488);
-}
-
-.theme-option[data-theme="noir-flame"] {
-  --preview-gradient: linear-gradient(135deg, #7F1D1D, #450A0A, #374151);
-}
-
-.theme-option[data-theme="toxic-cherry"] {
-  --preview-gradient: linear-gradient(135deg, #B11226, #7F1D1D, #84CC16);
-}
-
-.theme-option[data-theme="snake-oil"] {
-  --preview-gradient: linear-gradient(135deg, #064E3B, #022C22, #B45309);
-}
-
-.theme-option[data-theme="vermelho-vivo"] {
-  --preview-gradient: linear-gradient(135deg, red, #B45309);
-}
-
-.theme-option[data-theme="turquesa"] {
-  --preview-gradient: linear-gradient(135deg, #17a2b8, #17b85d, #1fe1ff);
-} */
-
-
+   
     .cargos-agenda {
       font-size: 11px;
       color: var(--text-soft);
