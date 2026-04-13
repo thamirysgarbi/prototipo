@@ -1526,9 +1526,9 @@
   </button>
 
   <div class="whatsapp-dropdown">
-    <button>Enviar aceite pacote <i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;"></i></button>
-    <button>Enviar aceite cashback<i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;"></i></button>
-    <button>Enviar cashback gerado<i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;"></i></button>
+    <button>Enviar aceite pacote <i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
+    <button>Enviar aceite cashback<i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
+    <button>Enviar cashback gerado<i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
   </div>
 </div>
                       Maria Silva
@@ -3172,24 +3172,53 @@
           <!-- ========================= -->
           <div id="abaPagamento" class="tab-pane fade">
 
-            <div class="card p-3 mb-4">
-              <div class="row text-center">
+<div class="comanda-section">
 
-                <span>totalComanda</span>
-                <h5 class="fw-bold" id="totalComanda">R$ 0,00</h5>
-                <span>totalCobrar</span>
-                <h5 class="fw-bold" id="totalCobrar">R$ 0,00</h5>
-                <span>totalPago</span>
-                <h5 class="fw-bold" id="totalPago">R$ 0,00</h5>
-                <span>troco</span>
-                <h5 class="fw-bold" id="troco">R$ 0,00</h5>
+<div class="card p-3 mb-4">
+  <label for="totalComanda">Total da Comanda</label>
+  <span id="totalComanda">R$ 0,00</span>
+</div>
 
-                <input type="number" class="form-control form-control-sm" id="valorPagamento"
+<div class="card p-3 mb-4">
+  <label for="totalCobrar">Total a Cobrar</label>
+  <span id="totalCobrar">R$ 0,00</span>
+</div>
+
+<div class="card p-3 mb-4">
+  <label for="totalPago">Total Pago</label>
+  <span id="totalPago">R$ 0,00</span>
+</div>
+
+<div class="card p-3 mb-4">
+  <label for="troco">Troco</label>
+  <span id="troco">R$ 0,00</span>
+</div>
+
+</div>
+
+<div class="comanda-section">
+
+<div class="card p-3 mb-4">
+  <label for="formaPagamento">Forma de Pagamento</label>
+  <select id="formaPagamento" class="form-select form-select-sm" onchange="atualizarPagamento()">
+    <option value="dinheiro">Dinheiro</option>
+    <option value="cartao">Cartão</option>
+    <option value="pix">Pix</option>
+    <option value="cheque">Cheque</option>
+    <option value="outros">Outros</option>
+  </select>
+
+  </div>
+
+<div class="card p-3 mb-4">
+  <label for="valorPagamento">Valor do Pagamento</label>
+  <input type="number" class="form-control form-control-sm" id="valorPagamento"
                   oninput="atualizarPagamento()">
+</div>
+
+</div>
 
 
-              </div>
-            </div>
 
           </div>
 

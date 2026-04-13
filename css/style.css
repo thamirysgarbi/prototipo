@@ -3711,6 +3711,20 @@
       line-height: 1.4;
     }
 
+    .comanda-section {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+
+      .comanda-section {
+        flex-direction: column;
+      }
+
+    }
+
     .page-caixa .comandas-header {
       display: flex;
       justify-content: space-between;

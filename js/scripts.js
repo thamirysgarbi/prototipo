@@ -1102,9 +1102,9 @@ function salvarComanda() {
   </button>
 
   <div class="whatsapp-dropdown">
-    <button>Enviar aceite pacote</button>
-    <button>Enviar aceite cashback</button>
-    <button>Enviar cashback gerado</button>
+    <button>Enviar aceite pacote <i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
+    <button>Enviar aceite cashback<i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
+    <button>Enviar cashback gerado<i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
   </div>
 </div>
       ${cliente}
