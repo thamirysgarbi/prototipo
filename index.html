@@ -3225,10 +3225,23 @@
 
           <div id="abaPagamento" class="tab-pane fade">
 
-            <div class="block mb-4 cashback-disponivel">
-              <label for="Cashback disponível">Cashback disponível</label>
-              <strong id="cashbackDisponivel">R$ 0,00</strong>
-            </div>
+
+<div class="modal-card highlight">
+        <h4 style="color: var(--primary);"><i class="fas fa-heart"></i> Cashback disponível</h4>
+<div style="
+    gap: 8px;
+    display: flex;
+    align-items: center;">
+  <span  style="font-size: 20px;font-weight: 600;"  id="totalCashback">R$ 0,00</span>
+  <label class="cashback-switch" style="margin-bottom: 10px;margin-top: 10px;color:var(--text-soft);">
+    <input type="checkbox" id="aplicarCashback">
+    <span></span>
+    Aplicar Cashback
+  </label>
+</div>
+
+</div>
+
   <div class="comanda-grid resumo">
 
 
@@ -3272,6 +3285,30 @@
       <input type="number" id="valorPagamento" oninput="atualizarPagamento()">
     </div>
 
+<div class="input-group-premium">
+      <label>Parcelas</label>
+      <select id="parcelas" onchange="atualizarPagamento()">
+        <option value="1">1x</option>
+        <option value="2">2x</option>
+        <option value="3">3x</option>
+        <option value="4">4x</option>
+        <option value="5">5x</option>
+      </select>
+    </div>
+
+    <div class="input-group-premium">
+      <label>Máquina</label>
+      <select id="maquina" onchange="atualizarPagamento()">
+        <option value="Bradesco">Bradesco</option>
+        <option value="Cielo">Cielo</option>
+        <option value="InfinitePay">InfinitePay</option>
+      </select>
+    </div>
+
+    <div class="input-group-premium">
+    <label for="observacaoAbaPagamento">Observações</label>
+      <input type="text" id="observacaoAbaPagamento" placeholder="Ex: Banco Bradesco, cartão de crédito, 2x sem juros" style="color: var(--text-soft);">
+    </div>
   </div>
 
 </div>
