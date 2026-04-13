@@ -3765,6 +3765,9 @@
 
 .comanda-grid.pagamento-box {
   grid-template-columns: repeat(5, 1fr);
+  background: var(--bg);
+  padding: 18px;
+  border-radius: 20px;
 }
 
 /* RESPONSIVO */
@@ -4485,11 +4488,24 @@
     /* BODY */
     #modalComanda .modal-body {
       padding: 28px;
-      padding-bottom: 30px;
+      padding-bottom: 0;
       background: var(--panel);
       overflow-y: scroll;
-      
-    }
+      padding-bottom: 30px;
+
+      overflow-y: auto;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Safari / iOS */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Chrome, Edge, Safari */
+#modalComanda .modal-body::-webkit-scrollbar {
+  display: none;
+}
 
     /* =========================
    TABS PREMIUM
@@ -4527,12 +4543,12 @@
 ========================= */
 
     #modalComanda .card {
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: var(--card);
+      border-radius: 20px;
+      border: none;
+      background: var(--bg);
       box-shadow: 0 10px 30px rgba(0, 0, 0, .04);
       transition: all .25s ease;
-      color: var(--text);
+      color: var(--text-soft);
     }
 
     #modalComanda .card:hover {
@@ -4571,8 +4587,8 @@
     /* INPUT SMALL REFINADO */
     #modalComanda .form-control-sm,
     #modalComanda .form-select-sm {
-      padding: 6px 10px;
-      font-size: 12px;
+      padding: 8px 12px;
+      font-size: 14px;
       color: var(--text-soft)
     }
 

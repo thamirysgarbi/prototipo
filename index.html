@@ -1521,16 +1521,19 @@
                   <div class="comanda-cliente">
                     <div style="display: flex; align-items: center; gap: 8px;">
                       <div class="whatsapp-wrapper">
-  <button class="comanda-icon-btn whatsapp-btn" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </button>
+                        <button class="comanda-icon-btn whatsapp-btn" aria-label="WhatsApp">
+                          <i class="fab fa-whatsapp"></i>
+                        </button>
 
-  <div class="whatsapp-dropdown">
-    <button>Enviar aceite pacote <i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
-    <button>Enviar aceite cashback<i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
-    <button>Enviar cashback gerado<i class="fas fa-chevron-right" style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
-  </div>
-</div>
+                        <div class="whatsapp-dropdown">
+                          <button>Enviar aceite pacote <i class="fas fa-chevron-right"
+                              style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
+                          <button>Enviar aceite cashback<i class="fas fa-chevron-right"
+                              style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
+                          <button>Enviar cashback gerado<i class="fas fa-chevron-right"
+                              style="color: var(--primary);margin-left: 4px;font-size: 11px;"></i></button>
+                        </div>
+                      </div>
                       Maria Silva
                     </div>
                     <div class="comanda-status badge-fechada">
@@ -2935,7 +2938,7 @@
 
         </div>
       </div>
-
+<div>
       <!-- ABAS -->
       <ul class="nav nav-tabs px-3 pt-2 mb-0" role="tablist">
 
@@ -2958,6 +2961,7 @@
         </li>
 
       </ul>
+</div>
 
 
       <div class="modal-body">
@@ -2976,7 +2980,8 @@
                   <h6 class="fw-semibold m-0 mb-2">Cliente</h6>
 
                   <div class="d-flex align-items-center gap-2">
-                    <input type="text" class="form-control form-control-sm" placeholder="Cadastrar - (99) 99999-9999">
+                    <input type="text" class="form-control form-control-sm" placeholder="Maria Silva" style="color:var(--text-soft)"
+                    >
 
                     <button class="icon-btn icon-danger" type="button">
                       ✕
@@ -3167,98 +3172,122 @@
 
           </div>
 
-      <!-- ABA PAGAMENTO -->
+          <!-- ABA PAGAMENTO -->
 
           <div id="abaPagamento" class="tab-pane fade">
 
+<div style="
+    gap: 16px;
+    display: grid;
+grid-auto-flow: column;">
+            <div class="card" style="background: var(--gradient-main);padding: 16px;margin-bottom:16px;color:#fff">
+              <!-- <h4 style="color: var(--primary);"><i class="fas fa-heart"></i> Cashback disponível</h4> -->
+              <h4></h4>Cashback disponível</h4>
+              <div style="gap: 8px; display: flex; align-items: center;">
+                <span style="font-size: 20px;font-weight: 600;" id="totalCashback">R$ 0,00</span>
+                <label class="cashback-switch" style="margin-bottom: 10px;margin-top: 10px;color:#fff;">
+                  <input type="checkbox" id="aplicarCashback">
+                  <span></span>
+                  Aplicar Cashback
+                </label>
+              </div>
+              <div class="input-group-premium">
+                <label style="color: #fff">Valor Utilizado</label>
+                <input type="number" id="valorUtilizado" oninput="atualizarPagamento()">
+              </div>
+            </div>
 
-<div class="card" style="background: var(--gradient-main);padding: 16px;margin-bottom:16px;color:#fff">
-        <!-- <h4 style="color: var(--primary);"><i class="fas fa-heart"></i> Cashback disponível</h4> -->
-        <h4></h4>Cashback disponível</h4>
-<div style="gap: 8px; display: flex; align-items: center;">
-  <span  style="font-size: 20px;font-weight: 600;"  id="totalCashback">R$ 0,00</span>
-  <label class="cashback-switch" style="margin-bottom: 10px;margin-top: 10px;color:#fff;">
-    <input type="checkbox" id="aplicarCashback">
-    <span></span>
-    Aplicar Cashback
-  </label>
-</div>
-    <div class="input-group-premium">
-      <label style="color: #fff">Valor Utilizado</label>
-      <input type="number" id="valorPagamento" oninput="atualizarPagamento()">
-    </div>
-</div>
-
-  <div class="comanda-grid resumo">
-
-
-    <div class="kpi-card">
-      <span>Total da Comanda</span>
-      <strong id="totalComanda">R$ 0,00</strong>
-    </div>
-
-    <div class="kpi-card destaque">
-      <span>Total a Cobrar</span>
-      <strong id="totalCobrar">R$ 0,00</strong>
-    </div>
-
-    <div class="kpi-card pago">
-      <span>Total Pago</span>
-      <strong id="totalPago">R$ 0,00</strong>
-    </div>
-
-    <div class="kpi-card troco">
-      <span>Troco</span>
-      <strong id="troco">R$ 0,00</strong>
-    </div>
-
-  </div>
-
-  <div class="comanda-grid pagamento-box">
-
-    <div class="input-group-premium">
-      <label>Forma de pagamento</label>
-      <select id="formaPagamento" onchange="atualizarPagamento()">
-        <option value="dinheiro">Dinheiro</option>
-        <option value="cartao">Cartão</option>
-        <option value="pix">Pix</option>
-        <option value="cheque">Cheque</option>
-        <option value="outros">Outros</option>
-      </select>
-    </div>
-
-    <div class="input-group-premium">
-      <label>Valor do pagamento</label>
-      <input type="number" id="valorPagamento" oninput="atualizarPagamento()">
-    </div>
-
-<div class="input-group-premium">
-      <label>Parcelas</label>
-      <select id="parcelas" onchange="atualizarPagamento()">
-        <option value="1">1x</option>
-        <option value="2">2x</option>
-        <option value="3">3x</option>
-        <option value="4">4x</option>
-        <option value="5">5x</option>
-      </select>
-    </div>
-
-    <div class="input-group-premium">
-      <label>Máquina</label>
-      <select id="maquina" onchange="atualizarPagamento()">
-        <option value="Bradesco">Bradesco</option>
-        <option value="Cielo">Cielo</option>
-        <option value="InfinitePay">InfinitePay</option>
-      </select>
-    </div>
-
-    <div class="input-group-premium">
-    <label for="observacaoAbaPagamento">Observações</label>
-      <input type="text" id="observacaoAbaPagamento" placeholder="Ex: Banco Bradesco, cartão de crédito, 2x sem juros" style="color: var(--text-soft);">
-    </div>
-  </div>
+            <div class="card" style="background: var(--secondary);padding: 16px;margin-bottom:16px;color:#fff">
+              <!-- <h4 style="color: var(--primary);"><i class="fas fa-heart"></i> Cashback disponível</h4> -->
+              <h4></h4>Crédito disponível</h4>
+              <div style="gap: 8px; display: flex; align-items: center;">
+                <span style="font-size: 20px;font-weight: 600;" id="totalCashback">R$ 0,00</span>
+                <label class="cashback-switch" style="margin-bottom: 10px;margin-top: 10px;color:#fff;">
+                  <input type="checkbox" id="aplicarCashback">
+                  <span></span>
+                  Utilizar crédito
+                </label>
+              </div>
+              <div class="input-group-premium">
+                <label style="color: #fff">Valor Utilizado</label>
+                <input type="number" id="valorUtilizado" oninput="atualizarPagamento()">
+              </div>
+            </div>
 
 </div>
+
+
+            <div class="comanda-grid resumo">
+
+
+              <div class="kpi-card">
+                <span>Total da Comanda</span>
+                <strong id="totalComanda">R$ 0,00</strong>
+              </div>
+
+              <div class="kpi-card destaque">
+                <span>Total a Cobrar</span>
+                <strong id="totalCobrar">R$ 0,00</strong>
+              </div>
+
+              <div class="kpi-card pago">
+                <span>Total Pago</span>
+                <strong id="totalPago">R$ 0,00</strong>
+              </div>
+
+              <div class="kpi-card troco">
+                <span>Troco</span>
+                <strong id="troco">R$ 0,00</strong>
+              </div>
+
+            </div>
+
+            <div class="comanda-grid pagamento-box">
+
+              <div class="input-group-premium">
+                <label>Forma de pagamento</label>
+                <select id="formaPagamento" onchange="atualizarPagamento()">
+                  <option value="dinheiro">Dinheiro</option>
+                  <option value="cartao">Cartão</option>
+                  <option value="pix">Pix</option>
+                  <option value="cheque">Cheque</option>
+                  <option value="outros">Outros</option>
+                </select>
+              </div>
+
+              <div class="input-group-premium">
+                <label>Valor do pagamento</label>
+                <input type="number" id="valorPagamento" oninput="atualizarPagamento()">
+              </div>
+
+              <div class="input-group-premium">
+                <label>Parcelas</label>
+                <select id="parcelas" onchange="atualizarPagamento()">
+                  <option value="1">1x</option>
+                  <option value="2">2x</option>
+                  <option value="3">3x</option>
+                  <option value="4">4x</option>
+                  <option value="5">5x</option>
+                </select>
+              </div>
+
+              <div class="input-group-premium">
+                <label>Máquina</label>
+                <select id="maquina" onchange="atualizarPagamento()">
+                  <option value="Bradesco">Bradesco</option>
+                  <option value="Cielo">Cielo</option>
+                  <option value="InfinitePay">InfinitePay</option>
+                </select>
+              </div>
+
+              <div class="input-group-premium">
+                <label for="observacaoAbaPagamento">Observações</label>
+                <input type="text" id="observacaoAbaPagamento"
+                  placeholder="Ex: Banco Bradesco, cartão de crédito, 2x sem juros" style="color: var(--text-soft);">
+              </div>
+            </div>
+
+          </div>
 
           <!-- ========================= -->
           <!-- ABA INFO -->
@@ -3311,26 +3340,26 @@
   <div id="tourOverlay" class="insight-overlay"></div>
 
   <script>
-document.addEventListener("click", (e) => {
+    document.addEventListener("click", (e) => {
 
-  const btn = e.target.closest(".whatsapp-btn");
+      const btn = e.target.closest(".whatsapp-btn");
 
-  if (btn) {
-    const wrapper = btn.closest(".whatsapp-wrapper");
-    const dropdown = wrapper.querySelector(".whatsapp-dropdown");
+      if (btn) {
+        const wrapper = btn.closest(".whatsapp-wrapper");
+        const dropdown = wrapper.querySelector(".whatsapp-dropdown");
 
-    dropdown.classList.toggle("active");
-    return;
-  }
+        dropdown.classList.toggle("active");
+        return;
+      }
 
-  if (!e.target.closest(".whatsapp-wrapper")) {
-    document.querySelectorAll(".whatsapp-dropdown").forEach(d => {
-      d.classList.remove("active");
+      if (!e.target.closest(".whatsapp-wrapper")) {
+        document.querySelectorAll(".whatsapp-dropdown").forEach(d => {
+          d.classList.remove("active");
+        });
+      }
+
     });
-  }
-
-});
-</script>
+  </script>
 
 </body>
 
