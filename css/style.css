@@ -3754,7 +3754,7 @@
 /* KPI CARDS */
 .kpi-card {
   background: var(--card);
-  border: var(--border);
+  border: 1px solid var(--border);
   border-radius: 14px;
   padding: 18px;
   display: flex;
@@ -3782,17 +3782,17 @@
 
 /* DESTAQUES */
 .kpi-card.destaque {
-  border: var(--border);
+  border: 1px solid var(--border);
   background: var(--card);
 }
 
 .kpi-card.pago {
-  border: var(--border);
+  border: 1px solid var(--border);
   background: var(--card);
 }
 
 .kpi-card.troco {
-  border: var(--border);
+  border: 1px solid var(--border);
   background: var(--card);
 }
 
@@ -4016,6 +4016,11 @@
       display: flex;
       align-items: center;
       /* height: 35px; */
+    }
+
+    .cashback-disponivel {
+      background: var(--gradient-main);
+      color: #fff;
     }
 
     .page-caixa .badge-pagouDivida {
@@ -4590,12 +4595,17 @@
 ========================= */
 
     #modalComanda .modal-footer {
-      justify-content: center;
+      /* justify-content: center;
       border-top: none;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 16px 6px;
+      padding: 16px 6px; */
+      position: fixed;
+      bottom: 0;
+      background: var(--bg);
+      border-radius: 50px;
+      gap: 12px;
     }
 
     @media (max-width: 768px) {
