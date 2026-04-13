@@ -3704,7 +3704,7 @@
 
     /* pagamentos */
 
-    .page-caixa .pagamentos {
+    /* .page-caixa .pagamentos {
       font-size: 12px;
       color: var(--text-soft);
       margin-top: 6px;
@@ -3723,7 +3723,110 @@
         flex-direction: column;
       }
 
-    }
+    } */
+
+    /* GRID PRINCIPAL */
+.comanda-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.comanda-grid.resumo {
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 20px;
+}
+
+.comanda-grid.pagamento-box {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .comanda-grid.resumo {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .comanda-grid.pagamento-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* KPI CARDS */
+.kpi-card {
+  background: var(--card);
+  border: var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: 0.2s;
+}
+
+.kpi-card span {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+.kpi-card strong {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* HOVER SUAVE */
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+/* DESTAQUES */
+.kpi-card.destaque {
+  border: var(--border);
+  background: var(--card);
+}
+
+.kpi-card.pago {
+  border: var(--border);
+  background: var(--card);
+}
+
+.kpi-card.troco {
+  border: var(--border);
+  background: var(--card);
+}
+
+/* INPUT PREMIUM */
+.input-group-premium {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.input-group-premium label {
+  font-size: 12px;
+  color: var(--text-soft);
+}
+
+.input-group-premium input,
+.input-group-premium select {
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 0 12px;
+  font-size: 14px;
+  transition: 0.2s;
+  background: var(--card);
+  color: var(--text-soft);
+}
+
+/* FOCUS BONITO */
+.input-group-premium input:focus,
+.input-group-premium select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+}
 
     .page-caixa .comandas-header {
       display: flex;

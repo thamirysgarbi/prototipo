@@ -1065,7 +1065,7 @@ function salvarComanda() {
         const divida = (totalNum - pagoNum)
             .toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-        footerExtra = `<div class="danger">Deixou Dívida: ${divida}</div>`;
+        footerExtra = `<div class="badge-divida">Deixou Dívida: ${divida}</div>`;
     }
     else if (pagoNum > totalNum) {
         statusClasse = "badge-fechada";
@@ -1074,7 +1074,7 @@ function salvarComanda() {
         const credito = (pagoNum - totalNum)
             .toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 
-        footerExtra = `<div class="sucess">Deixou Crédito: ${credito}</div>`;
+        footerExtra = `<div class="badge-credito">Deixou Crédito: ${credito}</div>`;
     }
 
 

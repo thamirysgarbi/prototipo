@@ -3170,7 +3170,7 @@
           <!-- ========================= -->
           <!-- ABA PAGAMENTO -->
           <!-- ========================= -->
-          <div id="abaPagamento" class="tab-pane fade">
+          <!-- <div id="abaPagamento" class="tab-pane fade">
 
 <div class="comanda-section">
 
@@ -3220,8 +3220,56 @@
 
 
 
-          </div>
+          </div> -->
 
+
+          <div id="abaPagamento" class="tab-pane fade">
+
+  <div class="comanda-grid resumo">
+
+    <div class="kpi-card">
+      <span>Total da Comanda</span>
+      <strong id="totalComanda">R$ 0,00</strong>
+    </div>
+
+    <div class="kpi-card destaque">
+      <span>Total a Cobrar</span>
+      <strong id="totalCobrar">R$ 0,00</strong>
+    </div>
+
+    <div class="kpi-card pago">
+      <span>Total Pago</span>
+      <strong id="totalPago">R$ 0,00</strong>
+    </div>
+
+    <div class="kpi-card troco">
+      <span>Troco</span>
+      <strong id="troco">R$ 0,00</strong>
+    </div>
+
+  </div>
+
+  <div class="comanda-grid pagamento-box">
+
+    <div class="input-group-premium">
+      <label>Forma de pagamento</label>
+      <select id="formaPagamento" onchange="atualizarPagamento()">
+        <option value="dinheiro">Dinheiro</option>
+        <option value="cartao">Cartão</option>
+        <option value="pix">Pix</option>
+        <option value="cheque">Cheque</option>
+        <option value="outros">Outros</option>
+      </select>
+    </div>
+
+    <div class="input-group-premium">
+      <label>Valor do pagamento</label>
+      <input type="number" id="valorPagamento" oninput="atualizarPagamento()">
+    </div>
+
+  </div>
+
+</div>
 
           <!-- ========================= -->
           <!-- ABA INFO -->
