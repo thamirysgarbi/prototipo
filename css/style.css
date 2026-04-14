@@ -2492,7 +2492,7 @@ body[data-theme="sand-minimal"].dark {
       .btn-visualizar-pacote {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start !important;
       }
 
       
