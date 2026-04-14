@@ -959,13 +959,53 @@ function atualizarPagamento() {
 
     const restante = total - pago;
 
+    let troco = 0;
+
+    const trocoEl = document.getElementById("troco");
+    const totalCobrarEl = document.getElementById("totalCobrar");
+
     if (restante > 0) {
-        document.getElementById("totalCobrar").innerText = formatarMoeda(restante);
-        document.getElementById("troco").innerText = "R$ 0,00";
+        // cliente ainda deve
+        totalCobrarEl.innerText = formatarMoeda(restante);
+        trocoEl.innerText = "R$ 0,00";
+        troco = -restante; // dívida
     } else {
-        document.getElementById("totalCobrar").innerText = "R$ 0,00";
-        document.getElementById("troco").innerText =
-            restante < 0 ? formatarMoeda(Math.abs(restante)) : "R$ 0,00";
+        totalCobrarEl.innerText = "R$ 0,00";
+
+        troco = restante < 0 ? Math.abs(restante) : 0;
+
+        trocoEl.innerText =
+            troco > 0 ? formatarMoeda(troco) : "R$ 0,00";
+    }
+
+    // ===== CONTROLE DE UI =====
+    const wrapper = document.getElementById("trocoCreditoWrapper");
+    const texto = document.getElementById("trocoTexto");
+    const checkbox = document.getElementById("trocoCredito");
+    const card = document.querySelector(".kpi-card.troco");
+
+    // segurança (evita erro se algo não existir)
+    if (!wrapper || !texto || !checkbox || !card) return;
+
+    // limpa estado visual sempre
+    card.classList.remove("credito", "divida");
+
+    if (restante < 0) {
+        // 💰 cliente pagou a mais → crédito
+        wrapper.style.display = "block";
+        texto.innerText = "Salvar troco como crédito?";
+        card.classList.add("credito");
+
+    } else if (restante > 0) {
+        // ⚠️ cliente pagou a menos → dívida
+        wrapper.style.display = "block";
+        texto.innerText = "Salvar troco como dívida?";
+        card.classList.add("divida");
+
+    } else {
+        // 👍 pagamento exato
+        wrapper.style.display = "none";
+        checkbox.checked = false;
     }
 }
 
