@@ -57,6 +57,8 @@
       --caixa-badge-pagouDivida-color: #b9b617;
       --caixa-badge-utilizouPacote-bg: rgb(195, 195, 195);
       --caixa-badge-utilizouPacote-color: #707070;
+      --caixa-badge-utilizouCashback-bg: var(--primary-bg-soft);
+      --caixa-badge-utilizouCashback-color: var(--primary);
 
       --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
 
@@ -325,6 +327,72 @@
 
       --gradient-main: linear-gradient(135deg, #0EA5E9, #FB7185);
     }
+
+    body[data-theme="rose-fire"] {
+  --primary: #FB7185;         /* seu rosa */
+  --primary-hover: #F43F5E;
+  --primary-rgb: 251, 113, 133;
+
+  --secondary: #F9A8D4;       /* rosa mais suave pra equilibrar */
+  --secondary-rgb: 249, 168, 212;
+
+  --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+body[data-theme="rose-fire"].dark {
+  --primary: #FB7185;
+  --primary-hover: #FDA4AF;
+  --primary-rgb: 251, 113, 133;
+
+  --secondary: #BE185D;       /* rosa mais profundo */
+  --secondary-rgb: 190, 24, 93;
+
+  --gradient-main: linear-gradient(135deg, #FB7185, #BE185D);
+}
+
+body[data-theme="lavender-soft"] {
+  --primary: #C4B5FD;         /* lilás suave */
+  --primary-hover: #A78BFA;
+  --primary-rgb: 196, 181, 253;
+
+  --secondary: #A78BFA;       /* lilás mais suave (quase creme) */
+  --secondary-rgb: 167, 139, 250;
+
+  --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+body[data-theme="lavender-soft"].dark {
+  --primary: #A78BFA;
+  --primary-hover: #C4B5FD;
+  --primary-rgb: 167, 139, 250;
+
+  --secondary: #A78BFA;
+  --secondary-rgb: 167, 139, 250;
+
+  --gradient-main: linear-gradient(135deg, #A78BFA, #A78BFA);
+}
+
+body[data-theme="mocha-smoke"] {
+  --primary: #6B4F3A;         /* marrom café */
+  --primary-hover: #5A3E2B;
+  --primary-rgb: 107, 79, 58;
+
+  --secondary: #94A3B8;       /* cinza azulado suave */
+  --secondary-rgb: 148, 163, 184;
+
+  --gradient-main: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+body[data-theme="mocha-smoke"].dark {
+  --primary: #9e7c61;         /* caramelo queimado */
+  --primary-hover: #5A3E2B;
+  --primary-rgb: 161, 98, 7;
+
+  --secondary: #94A3B8;       /* fundo frio */
+  --secondary-rgb: 30, 41, 59;
+
+  --gradient-main: linear-gradient(135deg, #6B4F3A, #94A3B8);
+}
 
     body[data-theme="mustard-tech"] {
       --primary: #CA8A04;
@@ -668,6 +736,28 @@
 
       --gradient-main: linear-gradient(135deg, #17a2b8, #17b85d, #1fe1ff);
     }
+
+body[data-theme="sand-minimal"] {
+  --primary: #6B7280;         /* bege elegante */
+  --primary-hover: #C2B8AE;
+  --primary-rgb: 33, 30, 10;
+
+  --secondary: #6B7280;       /* cinza neutro */
+  --secondary-rgb: 107, 114, 128;
+
+  --gradient-main: linear-gradient(135deg, var(--primary), var(--primary-hover));
+}
+
+body[data-theme="sand-minimal"].dark {
+  --primary: #A8A29E;
+  --primary-hover: #78716C;
+  --primary-rgb: 168, 162, 158;
+
+  --secondary: #1F2937;
+  --secondary-rgb: 31, 41, 55;
+
+  --gradient-main: linear-gradient(135deg, #A8A29E, #1F2937);
+}
 
 
 
@@ -4100,6 +4190,18 @@
       /* height: 35px; */
     }
 
+     .page-caixa .badge-utilizouCashback {
+      /* background: var(--caixa-badge-utilizouCashback-bg); */
+      color: var(--primary);
+      font-size: 11px;
+      /* padding: 4px 8px;
+      border-radius: 8px; */
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      /* height: 35px; */
+     }
+    
     .page-caixa .badge-pagouDivida {
       /* background: var(--caixa-badge-pagouDivida-bg); */
       color: var(--caixa-badge-pagouDivida-color);
