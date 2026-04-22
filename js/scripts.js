@@ -82,7 +82,7 @@ gerarAlertasEstoque();
 
 // Exemplo de dados (backend depois)
 const clientes = [
-    { nome: 'Ana Silva', aniversario: '2026-04-06' },
+    { nome: 'Ana Silva', aniversario: '2026-04-22' },
     { nome: 'Carla Mendes', aniversario: '2025-04-06' },
     { nome: 'Juliana Costa', aniversario: '2025-12-20' },
     { nome: 'Marcos Lima', aniversario: '2025-12-23' }
