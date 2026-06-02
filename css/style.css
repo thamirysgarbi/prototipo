@@ -956,6 +956,59 @@ body[data-theme="sand-minimal"].dark {
 
     }
 
+    .dashboard-filter-card{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position:relative;
+    cursor:pointer;
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.dashboard-filter-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+}
+
+.card-arrow {
+
+    width:0;
+    height:0;
+
+    border-left:7px solid transparent;
+    border-right:7px solid transparent;
+
+    /* começa apontando para cima */
+    border-bottom:8px solid var(--primary);
+
+    transition: transform .25s ease;
+
+}
+
+
+/* card aberto */
+.dashboard-filter-card.active-dashboard-card .card-arrow {
+
+    transform:rotate(180deg);
+
+}
+
+
+
+
+.btn-voltar-dashboard {
+      background: transparent;
+      border: none;
+      color: var(--primary);
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+}
+
     #page-cashback .btn-info {
       color: white;
       font-weight: 600;

@@ -82,7 +82,7 @@ gerarAlertasEstoque();
 
 // Exemplo de dados (backend depois)
 const clientes = [
-    { nome: 'Ana Silva', aniversario: '2026-04-22' },
+    { nome: 'Ana Silva', aniversario: '2026-04-23' },
     { nome: 'Carla Mendes', aniversario: '2025-04-06' },
     { nome: 'Juliana Costa', aniversario: '2025-12-20' },
     { nome: 'Marcos Lima', aniversario: '2025-12-23' }
@@ -1496,38 +1496,466 @@ charts.push(
     })
 );
 
-    charts.push(
-        new Chart(chartFinanceiro, {
-            type: 'doughnut',
-            data: {
-                labels: ['Serviços', 'Produtos', 'Pacotes'],
-                datasets: [{
-                    data: [13200, 4000, 1250],
-                    backgroundColor: [primary, secondary, gradient],
-                    borderColor: transparent,
-                    spacing: 4
-                }]
+
+const dashboardOriginal = dashboardContent.innerHTML;
+
+let chartDetalhe;
+
+
+// =========================
+// DADOS DOS CARDS
+// =========================
+
+const dashboardViews = {
+
+
+    receita: {
+
+        titulo: "💰 Principais receitas",
+
+        itens: [
+
+            {
+                nome:"Progressiva Premium",
+                tipo:"Serviço",
+                valor:5200
             },
 
-            options: {
-    plugins: {
-        legend: {
-            position: 'bottom',
-            labels: {
-                usePointStyle: true, // 🔥 troca quadrado por bolinha
-                pointStyle: 'circle',
-                padding: 16,
-                font: {
-                    size: 12,
-                    weight: '500'
-                },
-                color: text // usa a cor do texto do tema
+            {
+                nome:"Kit Home Care L'Oréal",
+                tipo:"Produto",
+                valor:3850
+            },
+
+            {
+                nome:"Coloração",
+                tipo:"Serviço",
+                valor:3100
+            },
+
+            {
+                nome:"Corte Feminino",
+                tipo:"Serviço",
+                valor:2200
+            },
+
+            {
+                nome:"Shampoo Absolut Repair",
+                tipo:"Produto",
+                valor:1900
+            },
+
+            {
+                nome:"Máscara Capilar",
+                tipo:"Produto",
+                valor:1300
+            },
+
+            {
+                nome:"Máscara Facial Revitalizante",
+                tipo:"Produto",
+                valor:1200
+            },
+
+            {
+                nome:"Kit Hidratação Profunda",
+                tipo:"Produto",
+                valor:950
+            },
+
+            {
+                nome:"Escova Progressiva",
+                tipo:"Serviço",
+                valor:890
+            },
+
+            {
+                nome:"Manicure Completa",
+                tipo:"Serviço",
+                valor:730
+            },
+
+        ]
+
+    },
+
+
+    custos: {
+
+        titulo:"📉 Principais despesas",
+
+        itens:[
+
+            {
+                nome:"Comissões Pagas",
+                tipo:"",
+                valor:4500
+            },
+
+            {
+                nome:"Aluguel",
+                tipo:"",
+                valor:3000
+            },
+
+            {
+                nome:"Marketing e Publicidade",
+                tipo:"",
+                valor:1500
+            },
+
+            {
+                nome:"Internet",
+                tipo:"",
+                valor:1200
+            },
+
+            {
+                nome:"Energia",
+                tipo:"",
+                valor:1000
+            },
+
+            {
+                nome:"Água",
+                tipo:"",
+                valor:890
+            },
+
+
+             {
+                nome:"Despesa Administrativa",
+                tipo:"",
+                valor:740
+            },
+
+            {
+                nome:"Equipamento",
+                tipo:"",
+                valor:500
+            },
+
+                        {
+                nome:"Gás",
+                tipo:"",
+                valor:280
+            },
+
+                        {
+                nome:"Alimentação",
+                tipo:"",
+                valor:120
             }
-        }
+
+
+        ]
+
     }
+
+
+};
+
+
+
+// =========================
+// ABRIR DETALHE
+// =========================
+
+
+function abrirDashboard(tipo){
+
+
+    const dados = dashboardViews[tipo];
+
+
+    const listaOrdenada = [...dados.itens]
+        .sort((a,b)=> b.valor - a.valor)
+        .slice(0,10);
+
+
+
+    dashboardContent.innerHTML = `
+
+
+
+
+
+
+        <div class="row g-4">
+
+
+            <div class="col-lg-7">
+
+
+                <div class="block">
+
+
+                    <h3>${dados.titulo}</h3>
+
+
+
+                    ${listaOrdenada.map((item,index)=>`
+
+
+                        <div class="row-line">
+
+
+                            <span>
+
+                                <strong>${index + 1}.</strong>
+
+                                ${item.nome}
+
+                                <small>
+                                ${item.tipo}
+                                </small>
+
+
+                            </span>
+
+
+
+                            <strong>
+
+                            R$ ${item.valor.toLocaleString("pt-BR")}
+
+                            </strong>
+
+
+                        </div>
+
+
+                    `).join("")}
+
+
+
+                </div>
+
+
+            </div>
+
+
+
+
+            <div class="col-lg-5">
+
+
+                <div class="chart">
+
+                    <canvas id="chartDetalhe"></canvas>
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+    `;
+
+
+
+    criarGraficoDetalhe(listaOrdenada);
+
+
 }
-        })
-    );
+
+
+
+
+// =========================
+// GRÁFICO DETALHE
+// =========================
+
+
+function criarGraficoDetalhe(lista){
+
+
+    if(chartDetalhe){
+        chartDetalhe.destroy();
+    }
+
+
+
+    chartDetalhe = new Chart(
+        document.getElementById("chartDetalhe"),
+        {
+
+
+        type:"bar",
+
+
+        data:{
+
+
+            labels: lista.map(x=>x.nome),
+
+
+            datasets:[{
+
+                data: lista.map(x=>x.valor),
+
+                backgroundColor:getThemeVar("--primary"),
+
+                borderRadius:10
+
+            }]
+
+
+        },
+
+
+
+        options:{
+
+
+            indexAxis:'y',
+
+
+            plugins:{
+
+                legend:{
+                    display:false
+                }
+
+            }
+
+
+        }
+
+
+    });
+
+
+}
+
+
+
+// =========================
+// VOLTAR VISÃO GERAL
+// =========================
+
+
+function voltarDashboard(){
+
+
+    dashboardContent.innerHTML = dashboardOriginal;
+
+
+
+    document
+    .querySelectorAll(".dashboard-filter-card")
+    .forEach(c=>c.classList.remove("active-dashboard-card"));
+
+
+
+    if(chartDetalhe){
+
+        chartDetalhe.destroy();
+
+    }
+
+
+
+    createCharts();
+
+
+}
+
+
+
+// =========================
+// CLIQUE NOS CARDS
+// =========================
+
+
+// =========================
+// CLIQUE NOS CARDS
+// =========================
+
+
+document
+.querySelectorAll(".dashboard-filter-card")
+.forEach(card=>{
+
+
+    card.addEventListener("click",()=>{
+
+
+        const jaAberto = 
+        card.classList.contains("active-dashboard-card");
+
+
+
+        // remove todos ativos
+        document
+        .querySelectorAll(".dashboard-filter-card")
+        .forEach(c=>c.classList.remove("active-dashboard-card"));
+
+
+
+        // se já estava aberto, fecha
+        if(jaAberto){
+
+
+            voltarDashboard();
+
+            return;
+
+
+        }
+
+
+
+        // se estava fechado, abre
+        card.classList.add("active-dashboard-card");
+
+
+
+        abrirDashboard(
+            card.dataset.view
+        );
+
+
+    });
+
+
+});
+
+//     charts.push(
+//         new Chart(chartFinanceiro, {
+//             type: 'doughnut',
+//             data: {
+//                 labels: ['Serviços', 'Produtos', 'Pacotes'],
+//                 datasets: [{
+//                     data: [13200, 4000, 1250],
+//                     backgroundColor: [primary, secondary, gradient],
+//                     borderColor: transparent,
+//                     spacing: 4
+//                 }]
+//             },
+
+//             options: {
+//     plugins: {
+//         legend: {
+//             position: 'bottom',
+//             labels: {
+//                 usePointStyle: true, // 🔥 troca quadrado por bolinha
+//                 pointStyle: 'circle',
+//                 padding: 16,
+//                 font: {
+//                     size: 12,
+//                     weight: '500'
+//                 },
+//                 color: text // usa a cor do texto do tema
+//             }
+//         }
+//     }
+// }
+//         })
+//     );
 
     charts.push(
         new Chart(chartClientes, {

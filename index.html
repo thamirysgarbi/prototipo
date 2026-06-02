@@ -390,8 +390,8 @@
           <ul class="nav nav-tabs mb-4">
             <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#geral">Visão
                 Geral</button></li>
-            <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
-                data-bs-target="#financeiro">Financeiro</button></li>
+            <!-- <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
+                data-bs-target="#financeiro">Financeiro</button></li> -->
             <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
                 data-bs-target="#clientes">Clientes</button></li>
             <li class="nav-item"><button class="nav-link" data-bs-toggle="tab"
@@ -405,29 +405,144 @@
             <!-- ================= VISÃO GERAL ================= -->
             <div class="tab-pane fade show active" id="geral">
 
-              <div class="row g-3 mb-3">
-                <div class="col-6 col-md-2">
-                  <div class="card-framja"><small>Receita</small>
-                    <h2>R$ 18.450</h2>
-                  </div>
-                </div>
-                <div class="col-6 col-md-2">
-                  <div class="card-framja"><small>Despesas</small>
-                    <h2>R$ 7.320</h2>
-                  </div>
-                </div>
-                <div class="col-6 col-md-2">
-                  <div class="card-framja"><small>Lucro</small>
-                    <h2>R$ 11.130</h2>
-                  </div>
-                </div>
-                <div class="col-6 col-md-2">
-                  <div class="card-framja"><small>Ticket médio</small>
-                    <h2>R$ 94</h2>
-                  </div>
-                </div>
-              </div>
+            <div class="row g-3 mb-3">
 
+
+    <div class="col-6 col-md-2">
+
+        <div class="card-framja dashboard-filter-card" data-view="receita">
+
+            <div>
+                <small>Receita</small>
+                <h2>R$ 18.450</h2>
+            </div>
+
+
+            <span class="card-arrow">
+                
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="col-6 col-md-2">
+
+        <div class="card-framja dashboard-filter-card" data-view="custos">
+
+            <div>
+                <small>Custos e Despesas</small>
+                <h2>R$ 7.320</h2>
+            </div>
+
+
+            <span class="card-arrow">
+                
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="col-6 col-md-2">
+
+        <div class="card-framja dashboard-filter-card" data-view="lucro">
+
+            <div>
+                <small>Lucro do Período</small>
+                <h2>R$ 11.130</h2>
+            </div>
+
+
+            <span class="card-arrow">
+                
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+
+
+    <div class="col-6 col-md-2">
+
+        <div class="card-framja dashboard-filter-card" data-view="ticket">
+
+            <div>
+                <small>Ticket médio</small>
+                <h2>R$ 94</h2>
+            </div>
+
+
+            <span class="card-arrow">
+                
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="col-6 col-md-2">
+
+        <div class="card-framja dashboard-filter-card" data-view="dividas">
+
+            <div>
+                <small>Dívidas de Clientes</small>
+                <h2>R$ 1.338,40</h2>
+            </div>
+
+
+            <span class="card-arrow">
+                
+            </span>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <div class="col-6 col-md-2">
+
+        <div class="card-framja dashboard-filter-card" data-view="creditos">
+
+            <div>
+                <small>Créditos de Clientes</small>
+                <h2>R$ 850,00</h2>
+            </div>
+
+
+            <span class="card-arrow">
+                
+            </span>
+
+        </div>
+
+    </div>
+
+
+</div>  
+
+              <div id="dashboardContent">
+              
               <div class="block alerts">
                 <h3>📅 Movimentações do dia</h3>
                 <div id="movimentacoesHoje"></div>
@@ -477,9 +592,10 @@
                 </div>
               </div>
             </div>
+            </div>
 
             <!-- ================= FINANCEIRO ================= -->
-            <div class="tab-pane fade" id="financeiro">
+            <!-- <div class="tab-pane fade" id="financeiro">
 
               <div class="row g-3 mb-3">
                 <div class="col-6 col-md-2">
@@ -564,7 +680,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
             <!-- ================= CLIENTES ================= -->
             <div class="tab-pane fade" id="clientes">
